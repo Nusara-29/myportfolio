@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Silpakorn University Admission</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Prompt) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Prompt', sans-serif; background-color: #fafafa; }
+        .bg-silpakorn-dark { background-color: #005B52; }
+        .bg-silpakorn-main { background-color: #007A6E; }
+        .bg-silpakorn-light { background-color: #E6F2F0; }
+        .text-silpakorn { color: #007A6E; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- การตั้งค่าตัวแปร GitHub (สำหรับให้คุณแก้ไข) -->
+    <script>
+        // ⚠️ แก้ไขข้อมูลตรงนี้ให้เป็นของคุณเอง ⚠️
+        const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // ใส่ Username GitHub ของคุณ
+        const GITHUB_REPO = 'YOUR_REPO_NAME';           // ใส่ชื่อ Repository ของคุณ
+        const FOLDER_PATH = 'portfolio-images';          // ชื่อโฟลเดอร์ที่เก็บรูป (ไม่ต้องแก้ถ้าตั้งตามขั้นตอน)
+    </script>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-silpakorn tracking-wide">PORTFOLIO.</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#home" class="hover:text-silpakorn transition">หน้าแรก</a>
+                <a href="#about" class="hover:text-silpakorn transition">เกี่ยวกับฉัน</a>
+                <a href="#education" class="hover:text-silpakorn transition">การศึกษา</a>
+                <a href="#projects" class="hover:text-silpakorn transition">ผลงานจาก GitHub</a>
+                <a href="#contact" class="hover:text-silpakorn transition">ติดต่อ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-white via-[#F4FAF9] to-[#E6F2F0] px-6 py-12">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 order-2 md:order-1 text-center md:text-left">
+                <span class="bg-silpakorn-light text-silpakorn font-medium px-4 py-1.5 rounded-full text-sm inline-block shadow-sm border border-emerald-100">
+                    Admission 2026 • มหาวิทยาลัยศิลปากร
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                    สวัสดีค่ะ, ฉันชื่อ <br>
+                    <span class="text-silpakorn">[ชื่อ-นามสกุลของคุณ]</span>
+                </h1>
+                <p class="text-gray-600 text-lg max-w-md mx-auto md:mx-0">
+                    ยินดีต้อนรับสู่เว็บพอร์ตโฟลิโอ คณะ[ระบุคณะ] มหาวิทยาลัยศิลปากร ด้านล่างนี้คือผลงานทั้งหมดที่ดึงแบบ Real-time มาจาก GitHub ของฉันค่ะ
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#projects" class="bg-silpakorn-main hover:bg-silpakorn-dark text-white font-medium px-8 py-3.5 rounded-2xl shadow-lg shadow-emerald-900/10 transition-all transform hover:-translate-y-1 text-center">
+                        ดูผลงานของฉัน
+                    </a>
+                </div>
+            </div>
+            
+            <!-- รูปโปรไฟล์หลัก -->
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-silpakorn-main rounded-3xl rotate-6 opacity-20 animate-pulse"></div>
+                    <div class="absolute inset-0 bg-[#D4AF37] rounded-3xl -rotate-3 opacity-10"></div>
+                    <div class="absolute inset-0 bg-gray-200 rounded-3xl overflow-hidden border-4 border-white shadow-xl">
+                        <!-- คุณสามารถอัปโหลดรูปตัวเองชื่อ profile.jpg ไว้ในโฟลเดอร์แล้วเปลี่ยนลิงก์ตรงนี้ได้ -->
+                        <img id="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Education (ย่อรวมกันเพื่อความมินิมอล) -->
+    <section id="about" class="py-20 bg-white px-6">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-gray-900 border-l-4 border-silpakorn pl-3">ประวัติส่วนตัว</h2>
+                <p class="text-gray-600"><strong>แผนการเรียน:</strong> ศิลป์-คำนวณ / วิทย์-คณิต</p>
+                <p class="text-gray-600"><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียนของคุณ]</p>
+                <p class="text-gray-600">มีความตั้งใจที่จะเข้าศึกษาต่อเพื่อนำทักษะสร้างสรรค์มาพัฒนาและเรียนรู้ในสังคมวิชาการของมหาวิทยาลัยศิลปากร</p>
+            </div>
+            <div id="education" class="space-y-4">
+                <h2 class="text-2xl font-bold text-gray-900 border-l-4 border-silpakorn pl-3">การศึกษา</h2>
+                <div class="border-l-2 border-emerald-100 pl-4 space-y-3">
+                    <div>
+                        <span class="text-xs text-silpakorn font-bold">พ.ศ. 2566 - 2569</span>
+                        <p class="text-sm font-semibold text-gray-800">มัธยมศึกษาตอนปลาย (GPAX: X.XX)</p>
+                    </div>
+                    <div>
+                        <span class="text-xs text-silpakorn font-bold">พ.ศ. 2563 - 2566</span>
+                        <p class="text-sm font-semibold text-gray-800">มัธยมศึกษาตอนต้น (GPAX: X.XX)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Portfolio Section (ส่วนดึงภาพอัตโนมัติ) -->
+    <section id="projects" class="py-20 bg-silpakorn-light/50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-950 mb-3">ผลงานและกิจกรรม</h2>
+                <div class="w-12 h-1 bg-silpakorn-main mx-auto rounded-full mb-4"></div>
+                <p class="text-gray-500 text-sm">รูปภาพทั้งหมดถูกดึงมาจากระบบคลังผลงานบน GitHub Repository โดยอัตโนมัติ</p>
+            </div>
+
+            <!-- กล่องโหลดข้อมูลหมุนๆ -->
+            <div id="loading" class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-silpakorn border-t-transparent"></div>
+                <p class="text-gray-500 text-sm mt-2">กำลังดึงรูปภาพจาก GitHub...</p>
+            </div>
+
+            <!-- Grid ผลงานจะมาโผล่ตรงนี้ -->
+            <div id="portfolio-grid" class="grid md:grid-cols-3 gap-8 hidden">
+                <!-- เจนโค้ดการ์ดผลงานผ่าน JavaScript ด้านล่าง -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-silpakorn-dark text-white px-6">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="text-3xl font-bold">ช่องทางการติดต่อ</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">เบอร์โทร</p><p class="font-semibold mt-1">08X-XXX-XXXX</p></div>
+                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">อีเมล</p><p class="font-semibold mt-1">your@email.com</p></div>
+                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">Instagram</p><p class="font-semibold mt-1">@your.ig</p></div>
+                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">GitHub</p><p class="font-semibold mt-1">github.com/...</p></div>
+            </div>
+            <p class="text-xs text-emerald-200/40 pt-12">© 2026 Portfolio for Silpakorn University Admission.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript สำหรับการ Fetch ข้อมูลจาก GitHub API -->
+    <script>
+        async function loadGitHubImages() {
+            const grid = document.getElementById('portfolio-grid');
+            const loading = document.getElementById('loading');
+            
+            // สร้าง URL สำหรับเรียก GitHub API
+            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${FOLDER_PATH}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('ไม่สามารถเข้าถึง Repository ได้ กรุณาตรวจสอบ Username และชื่อ Repo');
+                
+                const files = await response.json();
+                
+                // กรองเฉพาะไฟล์ที่เป็นรูปภาพ
+                const validExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+                const imageFiles = files.filter(file => {
+                    const ext = file.name.split('.').pop().toLowerCase();
+                    return validExtensions.includes(ext);
+                });
+
+                if(imageFiles.length === 0) {
+                    grid.innerHTML = `<p class="text-center text-gray-500 col-span-full py-8">ไม่พบไฟล์รูปภาพในโฟลเดอร์ "${FOLDER_PATH}"</p>`;
+                } else {
+                    let htmlContent = '';
+                    
+                    imageFiles.forEach(file => {
+                        // แยกชื่อไฟล์ออกเพื่อทำเป็น หัวข้อ (Title) และ คำอธิบาย (Description)
+                        // สมมติชื่อไฟล์: "รางวัลชนะเลิศ - ประกวดวาดภาพระดับจังหวัด.jpg"
+                        const nameWithoutExt = file.name.substring(0, file.name.lastIndexOf('.'));
+                        const nameParts = nameWithoutExt.split(' - ');
+                        
+                        const title = nameParts[0] ? nameParts[0].trim() : 'ผลงานแฟ้มสะสม';
+                        const description = nameParts[1] ? nameParts[1].trim() : 'ภาพกิจกรรม/ผลงานที่อัปโหลดผ่าน GitHub';
+                        
+                        // สร้างโครงสร้างการ์ดรูปภาพ (ดีไซน์โค้งมน ทันสมัย แบบผู้หญิง)
+                        htmlContent += `
+                            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-2 group">
+                                <div class="h-56 bg-gray-100 overflow-hidden relative">
+                                    <img src="${file.download_url}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                                <div class="p-6 space-y-2">
+                                    <span class="text-[11px] font-bold text-silpakorn bg-silpakorn-light px-2.5 py-1 rounded-full uppercase tracking-wider">Activity</span>
+                                    <h3 class="font-bold text-gray-900 text-base leading-tight pt-1">${title}</h3>
+                                    <p class="text-gray-500 text-xs leading-relaxed">${description}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    grid.innerHTML = htmlContent;
+                }
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<p class="text-center text-red-500 col-span-full py-8">❌ เกิดข้อผิดพลาด: ${error.message}<br><span class="text-xs text-gray-400">กรุณาตรวจสอบการตั้งค่าตัวแปรภาษาอังกฤษที่หัวเว็บให้ถูกต้อง</span></p>`;
+            } finally {
+                loading.classList.add('hidden');
+                grid.classList.remove('hidden');
+            }
+        }
+
+        // สั่งให้ฟังก์ชันทำงานเมื่อเปิดหน้าเว็บ
+        window.addEventListener('DOMContentLoaded', loadGitHubImages);
+    </script>
+</body>
+</html>

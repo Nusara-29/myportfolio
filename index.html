@@ -6,195 +6,204 @@
     <title>My Sweet Portfolio 🌿 Silpakorn University</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Font (Prompt - อ่านง่าย สบายตาที่สุด) -->
+    <!-- Google Font (Prompt) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --su-green: #007A6E;       /* สีเขียวศิลปากร */
-            --su-green-light: #E6F2F0; /* สีเขียวมิ้นต์พาสเทล */
-            --cute-pink: #FFF0F2;      /* สีชมพูพาสเทลเพิ่มความน่ารัก */
-            --bg-cream: #FAF9F6;       /* สีขาวนวลสบายตา */
+            --su-green: #007A6E;       /* สีเขียวศิลปากรแท้ */
+            --su-green-dark: #005B52;  /* สีเขียวเข้มเน้นขอบ */
+            --su-green-light: #D1EAE6; /* สีเขียวพาสเทลชัดเจน */
+            --bg-sweet-green: #F0F7F6; /* พื้นหลังสว่างโทนเขียวละมุน */
         }
         body { 
             font-family: 'Prompt', sans-serif; 
-            background-color: var(--bg-cream);
+            background-color: var(--bg-sweet-green);
         }
         .text-su { color: var(--su-green); }
+        .text-su-dark { color: var(--su-green-dark); }
         .bg-su { background-color: var(--su-green); }
+        .bg-su-dark { background-color: var(--su-green-dark); }
         .bg-su-light { background-color: var(--su-green-light); }
-        .bg-cute-pink { background-color: var(--cute-pink); }
+        .border-su { border-color: var(--su-green); }
         
-        /* ลูกเล่นกรอบโพลารอยด์น่ารักๆ */
+        /* การ์ดโพลารอยด์แนวตั้ง 9:16 น่ารักๆ */
         .polaroid-card {
             background: white;
-            padding: 12px 12px 24px 12px;
-            box-shadow: 0 8px 24px rgba(0, 122, 110, 0.06);
-            border: 2px solid #E2E8F0;
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            padding: 16px 16px 28px 16px;
+            box-shadow: 0 10px 25px rgba(0, 122, 110, 0.08);
+            border: 2px solid #C6E2DE;
+            border-radius: 24px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.15);
         }
         .polaroid-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-            box-shadow: 0 12px 30px rgba(0, 122, 110, 0.12);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 122, 110, 0.15);
             border-color: var(--su-green);
+        }
+
+        /* กล่องสำหรับรูปภาพแนวตั้ง 9:16 */
+        .aspect-9-16 {
+            aspect-ratio: 9 / 16;
         }
     </style>
 </head>
 <body class="text-gray-800 antialiased">
 
-    <!-- 🌸 ส่วนหัวข้อ/บาร์ด้านบน (น่ารัก มินิมอล) -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-emerald-100 shadow-sm">
+    <!-- 🌸 ส่วนนำทางบาร์ด้านบน (สีเขียวชัดเจน ขาวละมุน) -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-su-light shadow-sm">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="text-xl font-bold text-su tracking-wider flex items-center gap-2">
-                🎨 PORTFOLIO <span class="text-xs bg-su-light px-2.5 py-0.5 rounded-full font-normal">Admission 2026</span>
+                🎨 SU PORTFOLIO <span class="text-xs bg-su text-white px-2.5 py-0.5 rounded-full font-normal">Admission 2026</span>
             </span>
-            <div class="flex space-x-6 text-sm font-medium text-gray-600">
+            <div class="flex space-x-6 text-sm font-semibold text-gray-600">
                 <a href="#about" class="hover:text-su transition">เกี่ยวกับฉัน</a>
-                <a href="#gallery" class="hover:text-su transition">ผลงานของฉัน</a>
-                <a href="#contact" class="hover:text-su transition">ติดต่อ</a>
+                <a href="#gallery" class="hover:text-su transition">ผลงาน 9:16</a>
+                <a href="#contact" class="hover:text-su transition">ติดต่อหนู</a>
             </div>
         </div>
     </nav>
 
-    <!-- 🌿 Hero Section (ต้อนรับแบบอบอุ่น สว่างสดใส) -->
+    <!-- 🌿 Hero Section (ต้อนรับอบอุ่น สว่างสดใส โทนเขียวเด่น) -->
     <section class="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
         <div class="md:col-span-7 space-y-6 text-center md:text-left">
-            <div class="inline-flex items-center gap-2 bg-su-light text-su px-4 py-1.5 rounded-full text-sm font-semibold">
-                🌿 คณะที่ใฝ่ฝัน • มหาวิทยาลัยศิลปากร
+            <div class="inline-flex items-center gap-2 bg-su text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">
+                🍀 Candidate for Silpakorn University
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
                 สวัสดีค่ะอาจารย์ ✨ หนูชื่อ <br>
-                <span class="text-su text-5xl md:text-6xl font-extrabold">[ชื่อ-นามสกุล ของคุณ]</span>
+                <span class="text-su text-5xl md:text-6xl font-extrabold tracking-wide">[ชื่อ-นามสกุล ของคุณ]</span>
             </h1>
             <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
-                ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานออนไลน์ค่ะ หนูตั้งใจออกแบบหน้าเว็บนี้ให้เรียบง่าย สบายตา และเข้าถึงง่ายที่สุด เพื่อนำเสนอตัวตนและความตั้งใจจริงในการเข้าศึกษาต่อค่ะ
+                ยินดีต้อนรับเข้าสู่คลังเก็บแฟ้มสะสมผลงานออนไลน์ค่ะ หน้าเว็บนี้เน้นความสะอาดตา สว่างสดใส และใช้โทนสีเขียวของมหาวิทยาลัยศิลปากร เพื่อแสดงความมุ่งมั่นตั้งใจของหนูค่ะ
             </p>
             <div class="pt-2">
-                <a href="#gallery" class="inline-block bg-su hover:bg-[#005B52] text-white font-semibold px-8 py-3.5 rounded-2xl shadow-md transition-all transform hover:scale-105 active:scale-95">
-                    👇 คลิกดูผลงานทั้ง 11 ชิ้น
+                <a href="#gallery" class="inline-block bg-su hover:bg-su-dark text-white font-bold px-8 py-4 rounded-2xl shadow-md transition-all transform hover:scale-105 active:scale-95">
+                    💚 คลิกดูผลงานแนวตั้งทั้ง 11 ชิ้น
                 </a>
             </div>
         </div>
         
-        <!-- รูปโปรไฟล์เด็กดี (กรอบโค้งมนน่ารัก) -->
-        <div class="md:col-span-5 flex justify-center relative">
-            <div class="polaroid-card w-72 md:w-80 bg-white transform -rotate-2">
-                <div class="w-full h-80 bg-gray-100 rounded-xl overflow-hidden mb-4">
-                    <!-- 💡 เปลี่ยนเป็นรูปชุดนักเรียนของคุณ -->
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000" alt="Profile" class="w-full h-full object-cover">
+        <!-- ขวา: กรอบรูปโปรไฟล์แนวตั้ง 9:16 (เอารูปคนอื่นออกแล้ว) -->
+        <div class="md:col-span-5 flex justify-center">
+            <div class="polaroid-card w-72 bg-white transform -rotate-1">
+                <!-- กล่องรูปภาพเปล่า 9:16 พร้อมพื้นหลังไอคอนน่ารัก -->
+                <div class="w-full aspect-9-16 bg-[#EAF5F3] rounded-xl overflow-hidden mb-4 border-2 border-dashed border-su/30 flex flex-col items-center justify-center text-center p-4 relative group">
+                    <!-- โค้ดจะดึงภาพจากโฟลเดอร์อัตโนมัติ ถ้ารูปยังไม่มาจะขึ้นเป็นกรอบน่ารักๆ -->
+                    <img src="images/profile.jpg" alt="Profile" class="absolute inset-0 w-full h-full object-cover error-fallback" onerror="this.style.display='none'">
+                    
+                    <span class="text-4xl mb-2">📸</span>
+                    <p class="text-su font-bold text-sm">ใส่รูปโปรไฟล์ของคุณ</p>
+                    <p class="text-gray-400 text-[11px] mt-1">ตั้งชื่อไฟล์ภาพว่า: profile.jpg<br>ในโฟลเดอร์ images (ขนาด 9:16)</p>
                 </div>
-                <div class="text-center">
-                    <p class="font-bold text-gray-800 text-lg">[ชื่อเล่นของคุณ]</p>
-                    <p class="text-xs text-gray-400">Candidate for Silpakorn University</p>
+                <div class="text-center pt-2">
+                    <p class="font-bold text-su-dark text-lg">[ชื่อเล่นของคุณ]</p>
+                    <p class="text-xs text-gray-400 font-medium tracking-wider uppercase">SU Candidate</p>
                 </div>
             </div>
-            <!-- Deco สติกเกอร์น่ารักๆ ด้านหลัง -->
-            <div class="absolute -top-4 -right-4 w-12 h-12 bg-cute-pink rounded-full -z-10 animate-ping opacity-50"></div>
         </div>
     </section>
 
-    <!-- 📝 Section ข้อมูลส่วนตัว & การศึกษา (เน้นอ่านง่าย สบายตาผู้ใหญ่) -->
-    <section id="about" class="py-16 bg-white border-y border-emerald-100 px-6">
+    <!-- 📝 Section ข้อมูลส่วนตัว & การศึกษา (อ่านง่าย ตัวอักษรคมชัด) -->
+    <section id="about" class="py-16 bg-white border-y-2 border-su-light px-6">
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             <!-- ซ้าย: ข้อมูล -->
             <div class="space-y-4">
-                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <span class="p-1.5 bg-su-light rounded-lg text-su">👤</span> ประวัติส่วนตัว
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2 border-b-2 border-su-light pb-2">
+                    <span class="p-1.5 bg-su text-white text-xs rounded-lg">👤</span> ประวัติส่วนตัว
                 </h2>
-                <div class="bg-gray-50 p-6 rounded-2xl space-y-3 border border-gray-100 text-sm md:text-base">
+                <div class="bg-gradient-to-br from-white to-emerald-50/40 p-6 rounded-2xl space-y-3 border-2 border-su-light text-sm md:text-base">
                     <p><strong>ชื่อ-นามสกุล:</strong> นางสาว...........................</p>
-                    <p><strong>แผนการเรียน:</strong> ศิลป์-คำนวณ / วิทย์-คณิต</p>
+                    <p><strong>แผนการเรียน:</strong> ศิลป์-คำนวณ / วิทย์-คณิต / ศิลปะ</p>
                     <p><strong>โรงเรียน:</strong> ..........................................</p>
-                    <p class="text-gray-500 text-xs md:text-sm pt-2 border-t border-gray-200">
-                        "มีความมุ่งมั่น มนุษยสัมพันธ์ดี และพร้อมที่จะเรียนรู้วัฒนธรรมสร้างสรรค์ในรั้วมหาวิทยาลัยศิลปากรค่ะ"
+                    <p class="text-su font-medium text-xs md:text-sm pt-3 border-t border-dashed border-su-light">
+                        "หนูพร้อมที่จะเรียนรู้ พัฒนาทักษะ และสร้างสิ่งดีๆ ร่วมกับวัฒนธรรมที่เปี่ยมด้วยความครีเอทีฟในรั้วศิลปากรค่ะ"
                     </p>
                 </div>
             </div>
             <!-- ขวา: การศึกษา -->
             <div class="space-y-4">
-                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                    <span class="p-1.5 bg-su-light rounded-lg text-su">🎓</span> ประวัติการศึกษา
+                <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2 border-b-2 border-su-light pb-2">
+                    <span class="p-1.5 bg-su text-white text-xs rounded-lg">🎓</span> ประวัติการศึกษา
                 </h2>
-                <div class="relative border-l-2 border-su/30 pl-6 ml-3 space-y-6 text-sm md:text-base">
+                <div class="relative border-l-4 border-su pl-6 ml-3 space-y-6 text-sm md:text-base">
                     <div class="relative">
-                        <div class="absolute -left-[31px] top-1.5 w-3 h-3 bg-su rounded-full"></div>
-                        <span class="text-xs font-bold text-su bg-su-light px-2 py-0.5 rounded">พ.ศ. 2566 - 2569</span>
-                        <h4 class="font-semibold text-gray-900 mt-1">มัธยมศึกษาตอนปลาย</h4>
-                        <p class="text-gray-500 text-xs">GPAX รวม: X.XX</p>
+                        <div class="absolute -left-[32px] top-1 w-4 h-4 bg-white border-4 border-su rounded-full"></div>
+                        <span class="text-xs font-bold text-white bg-su px-2.5 py-0.5 rounded-full">พ.ศ. 2566 - 2569</span>
+                        <h4 class="font-bold text-gray-900 mt-2">มัธยมศึกษาตอนปลาย</h4>
+                        <p class="text-gray-500 text-xs mt-0.5">โรงเรียนเดิมของคุณ • GPAX: X.XX</p>
                     </div>
                     <div class="relative">
-                        <div class="absolute -left-[31px] top-1.5 w-3 h-3 bg-su/50 rounded-full"></div>
-                        <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">พ.ศ. 2563 - 2566</span>
-                        <h4 class="font-semibold text-gray-900 mt-1">มัธยมศึกษาตอนต้น</h4>
+                        <div class="absolute -left-[32px] top-1 w-4 h-4 bg-white border-4 border-su/40 rounded-full"></div>
+                        <span class="text-xs font-bold text-gray-600 bg-gray-200 px-2.5 py-0.5 rounded-full">พ.ศ. 2563 - 2566</span>
+                        <h4 class="font-bold text-gray-900 mt-2">มัธยมศึกษาตอนต้น</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 🎨 Section แสดงผลงาน 11 รูปแบบ Scrapbook จัดวางสวยงาม ไม่ซ้ำซาก -->
+    <!-- 🎨 Section แสดงผลงาน 11 รูปแบบ 9:16 สว่าง สะอาดตา -->
     <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
-        <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
-            <h2 class="text-3xl font-bold text-gray-950">MY CREATIVE WORKS</h2>
-            <p class="text-su font-medium text-sm">✨ แฟ้มสะสมผลงานและกิจกรรมทั้งหมด 11 ชิ้น (คลิกเพื่อดูรูปใหญ่) ✨</p>
-            <div class="w-16 h-1 bg-su mx-auto rounded-full mt-2"></div>
+        <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+            <h2 class="text-3xl font-bold text-gray-950 tracking-tight">MY CREATIVE WORKS</h2>
+            <p class="text-su font-bold text-sm bg-white border border-su-light inline-block px-4 py-1 rounded-full shadow-sm">🌿 ผลงานขนาดแนวตั้ง (9:16) ทั้ง 11 ชิ้น 🌿</p>
+            <div class="w-20 h-1 bg-su mx-auto rounded-full mt-4"></div>
         </div>
 
-        <!-- Grid layout แบบน่ารัก สลับขนาดเล็กใหญ่ดูมีมิติ แต่อ่านง่ายชัดเจน -->
+        <!-- Grid Layout แสดงการ์ดโพลารอยด์แนวตั้ง 9:16 เรียงสวยงามอ่านง่ายมาก -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="portfolio-grid">
             <!-- วนลูปสร้างการ์ดผลงาน 11 รูปผ่าน JavaScript ด้านล่าง -->
         </div>
     </section>
 
-    <!-- 🛑 Light Fullscreen Modal (หน้าต่างป็อปอัปสว่าง สวยงาม อ่านง่ายมาก) -->
-    <div id="art-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="closeModal()">
-        <!-- ปุ่มปิดแบบชัดๆ -->
-        <button class="absolute top-6 right-6 bg-white text-gray-800 hover:bg-gray-100 w-12 h-12 rounded-full text-xl shadow-lg flex items-center justify-center font-bold" onclick="closeModal()">✕</button>
+    <!-- 🛑 Light Fullscreen Modal (หน้าต่างป็อปอัปพื้นกระจกสว่าง ดูรูปชัดเจน) -->
+    <div id="art-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-su-dark/80 backdrop-blur-md transition-opacity duration-300 opacity-0" onclick="closeModal()">
+        <!-- ปุ่มปิดกล่อง -->
+        <button class="absolute top-6 right-6 bg-white text-su hover:bg-su-light w-12 h-12 rounded-full text-xl shadow-xl flex items-center justify-center font-bold border-2 border-su" onclick="closeModal()">✕</button>
         
-        <!-- ตัวกล่องแสดงรูป (เน้นสีขาวสว่าง สบายตา) -->
-        <div class="bg-white rounded-3xl p-4 max-w-3xl w-full shadow-2xl border border-gray-100 flex flex-col items-center" onclick="event.stopPropagation()">
-            <div class="w-full max-h-[65vh] overflow-hidden rounded-2xl bg-gray-50 flex items-center justify-center">
-                <img id="modal-img" src="" alt="Zoom Image" class="max-w-full max-h-[65vh] object-contain">
+        <!-- ตัวกล่องผลงานขาวสว่าง -->
+        <div class="bg-white rounded-3xl p-5 max-w-md w-full shadow-2xl border-2 border-su flex flex-col items-center" onclick="event.stopPropagation()">
+            <div class="w-full aspect-9-16 overflow-hidden rounded-2xl bg-[#EAF5F3] flex items-center justify-center border border-su-light">
+                <img id="modal-img" src="" alt="Zoom Image" class="w-full h-full object-contain">
             </div>
             <div class="p-4 text-center w-full">
-                <h3 id="modal-title" class="text-xl font-bold text-gray-900"></h3>
-                <p id="modal-desc" class="text-sm text-gray-500 mt-1.5 max-w-xl mx-auto"></p>
+                <h3 id="modal-title" class="text-xl font-bold text-su-dark"></h3>
+                <p id="modal-desc" class="text-sm text-gray-600 mt-1.5"></p>
             </div>
         </div>
     </div>
 
-    <!-- 📞 ช่องทางติดต่อ (ท้ายเว็บเรียบร้อย น่ารัก) -->
-    <section id="contact" class="py-12 bg-su-light/50 border-t border-emerald-100 px-6 text-center">
+    <!-- 📞 ช่องทางติดต่อ (ท้ายเว็บโทนเขียวชัดเจน เรียบร้อย น่ารัก) -->
+    <section id="contact" class="py-12 bg-white border-t-2 border-su-light px-6 text-center shadow-inner">
         <div class="max-w-3xl mx-auto space-y-6">
-            <h3 class="text-xl font-bold text-su">💌 ช่องทางการติดต่อติดต่อหนู</h3>
-            <div class="flex flex-wrap justify-center gap-4 text-sm">
-                <span class="bg-white px-4 py-2 rounded-full border border-emerald-200/60 shadow-sm">📞 เบอร์โทร: 08X-XXX-XXXX</span>
-                <span class="bg-white px-4 py-2 rounded-full border border-emerald-200/60 shadow-sm">✉️ อีเมล: name@example.com</span>
-                <span class="bg-white px-4 py-2 rounded-full border border-emerald-200/60 shadow-sm">📸 Instagram: @your.ig</span>
+            <h3 class="text-xl font-bold text-su flex justify-center items-center gap-2">💌 ติดต่อและให้คำแนะนำหนูได้ที่นี่</h3>
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">📞 โทร: 08X-XXX-XXXX</span>
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">✉️ อีเมล: name@email.com</span>
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">📸 IG: @your.art.ig</span>
             </div>
-            <p class="text-xs text-gray-400 pt-6">© 2026 Portfolio Website. ขอขอบพระคุณอาจารย์ที่สละเวลามาตรวจรับชมค่ะ</p>
+            <p class="text-xs text-gray-400 font-medium pt-4">© 2026 Portfolio Template. ขอขอบพระคุณคณะกรรมการมหาวิทยาลัยศิลปากรทุกท่านค่ะ</p>
         </div>
     </section>
 
-    <!-- 🛠️ JavaScript สำหรับจัดการข้อมูลผลงาน 11 ชิ้น และระบบคลิกเปิดดูเต็มจอ -->
+    <!-- 🛠️ JavaScript เจนการ์ดผลงานแนวตั้ง 9:16 แบบใส่ Placeholder รอไว้ -->
     <script>
-        // ข้อมูลผลงาน 11 ชิ้น (คุณสามารถแก้ข้อความตรงนี้ได้เลย)
         const totalWorks = 11;
         const artworks = [
-            { title: "01 | ผลงานชิ้นเอก / รางวัลเด่น", desc: "คำอธิบายผลงานชิ้นที่ 1 เช่น ได้รับรางวัลชนะเลิศจากการประกวดระดับจังหวัด" },
-            { title: "02 | กิจกรรมค่ายวิชาการ", desc: "เข้าร่วมค่ายฝึกอบรมเพิ่มทักษะความรู้ ณ สถาบัน..." },
-            { title: "03 | งานออกแบบกราฟิก", desc: "ออกแบบโปสเตอร์ประชาสัมพันธ์งานโรงเรียนด้วยโปรแกรม Canva/Photoshop" },
-            { title: "04 | ภาพวาดลายเส้น / สเก็ตช์", desc: "ฝึกฝนทักษะการวาดเส้นโครงสร้างสถาปัตยกรรมและวัตถุหุ่นนิ่ง" },
-            { title: "05 | งานจิตอาสาพัฒนา", desc: "ร่วมทำกิจกรรมทาสีกำแพงและสอนหนังสือให้น้องๆ ในชุมชน" },
-            { title: "06 | ผลงานศิลปะสื่อผสม", desc: "สร้างสรรค์ผลงานโดยใช้เทคนิคคอลลาจและสีอะคริลิก" },
-            { title: "07 | คณะกรรมการนักเรียน", desc: "ได้รับความไว้วางใจให้ดำรงตำแหน่งฝ่ายกิจกรรมของสภานักเรียน" },
-            { title: "08 | โครงงานวิทยาศาสตร์/ศิลป์", desc: "จัดทำเล่มโครงงานหัวข้อการประยุกต์ใช้ศิลปะกับชุมชน" },
-            { title: "09 | ภาพถ่ายประกวด", desc: "ผลงานภาพถ่ายในหัวข้อ วิถีชีวิตชุมชนเมือง" },
-            { title: "10 | งานออกแบบผลิตภัณฑ์", desc: "ทดลองออกแบบบรรจุภัณฑ์รักษ์โลกสำหรับสินค้าในท้องถิ่น" },
-            { title: "11 | ใบประกาศนียบัตรออนไลน์", desc: "ผ่านการทดสอบและอบรมหลักสูตรเรียนรู้ออนไลน์พื้นฐาน" }
+            { title: "01 | ผลงานชิ้นเอก / ชนะประกวด", desc: "รายละเอียดชิ้นงาน หรือรางวัลที่ได้รับอย่างภาคภูมิใจชิ้นที่ 1" },
+            { title: "02 | การออกแบบ / กราฟิกดีไซน์", desc: "รายละเอียดค่าน้ำหนัก แนวคิดโปรเจกต์ หรือโปรแกรมที่ใช้" },
+            { title: "03 | ภาพวาด / Fine Art", desc: "เทคนิคการลงสี สื่อผสม หรือแรงบันดาลใจในการวาด" },
+            { title: "04 | ภาพสเก็ตช์หุ่นนิ่ง / ลายเส้น", desc: "การฝึกฝนองค์ประกอบศิลป์ ค่าน้ำหนักแสงและเงา" },
+            { title: "05 | กิจกรรมค่ายวิชาการ", desc: "ประโยชน์และประสบการณ์ที่ได้รับจากการเข้าร่วมกิจกรรมค่าย" },
+            { title: "06 | งานจิตอาสาและพัฒนา", desc: "การทำกิจกรรมร่วมกับชุมชนหรือการช่วยเหลือสังคมโรงเรียน" },
+            { title: "07 | ผลงานการถ่ายภาพ", desc: "แนวคิดการเล่าเรื่องผ่านมุมมองกล้องถ่ายภาพแนวตั้ง" },
+            { title: "08 | โครงงานสร้างสรรค์", desc: "หัวข้อชิ้นงานโครงงานบูรณาการความรู้ศิลปะและวิชาการ" },
+            { title: "09 | ผลงานออกแบบผลิตภัณฑ์", desc: "แนวคิดการแก้ปัญหาและการดีไซน์โมเดลสินค้าจำลอง" },
+            { title: "10 | คณะทำงาน / สภานักเรียน", desc: "บทบาทหน้าที่ในการเป็นผู้นำหรือการจัดงานสำคัญ" },
+            { title: "11 | ใบประกาศนียบัตร / อบรม", desc: "หลักสูตรเพิ่มเติมที่ได้ศึกษาด้วยตนเองเพื่อเตรียมความพร้อม" }
         ];
 
         function renderGallery() {
@@ -203,23 +212,26 @@
 
             for (let i = 1; i <= totalWorks; i++) {
                 const data = artworks[i-1];
-                
-                // 💡 การดึงรูปภาพ:
-                // ตอนนี้ใช้รูปตัวอย่างน่ารักๆ จาก Unsplash 
-                // ถ้าคุณต้องการดึงรูปจาก GitHub ให้ใส่โฟลเดอร์รูปว่า images/1.jpg แล้วเปลี่ยนบรรทัดล่างเป็น: const imgUrl = `images/${i}.jpg`;
-                const imgUrl = `https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop&sig=${i}`;
+                const imgUrl = `images/${i}.jpg`; // ลิงก์ตรงดึงจากโฟลเดอร์ images ใน GitHub/เครื่องคอมของคุณ
 
                 html += `
                     <div class="polaroid-card cursor-pointer" onclick="openModal('${imgUrl}', '${data.title}', '${data.desc}')">
-                        <div class="w-full h-48 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 mb-3">
-                            <img src="${imgUrl}" alt="${data.title}" class="w-full h-full object-cover">
+                        <!-- กล่องภาพ 9:16 แบบ Clean เปล่าๆ แสดงกรอบน่ารักถ้ายังไม่มีไฟล์รูป -->
+                        <div class="w-full aspect-9-16 bg-[#EAF5F3] rounded-xl overflow-hidden mb-3 border border-su-light flex flex-col items-center justify-center p-3 relative text-center">
+                            
+                            <!-- ตัวรูปภาพจริง (จะซ้อนทับกรอบเปล่าทันทีเมื่ออัปโหลดรูปชื่อ i.jpg เข้ามา) -->
+                            <img src="${imgUrl}" alt="${data.title}" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+                            
+                            <span class="text-2xl mb-1 text-su opacity-60">🖼️</span>
+                            <p class="text-su font-bold text-xs">ผลงานชิ้นที่ ${i}</p>
+                            <p class="text-gray-400 text-[10px] mt-1">ชื่อไฟล์: ${i}.jpg<br>(ขนาดแนวตั้ง 9:16)</p>
                         </div>
                         <div class="space-y-1">
-                            <h3 class="font-bold text-gray-900 text-sm leading-snug">${data.title}</h3>
+                            <h3 class="font-bold text-su-dark text-sm leading-snug">${data.title}</h3>
                             <p class="text-gray-500 text-xs line-clamp-2">${data.desc}</p>
                         </div>
-                        <div class="text-right mt-2">
-                            <span class="text-[10px] text-su font-bold bg-su-light px-2 py-0.5 rounded-full">🔎 คลิกซูม</span>
+                        <div class="text-right mt-3">
+                            <span class="text-[10px] text-white bg-su font-bold px-2.5 py-0.5 rounded-full">🔍 กดซูมเต็มจอ</span>
                         </div>
                     </div>
                 `;
@@ -227,7 +239,7 @@
             grid.innerHTML = html;
         }
 
-        // --- ระบบเปิด-ปิด Modal ดูรูปใหญ่ ---
+        // --- ระบบเปิด-ปิด Modal สำหรับส่องรูปใหญ่แนวตั้ง 9:16 ---
         const modal = document.getElementById('art-modal');
         const modalImg = document.getElementById('modal-img');
         const modalTitle = document.getElementById('modal-title');
@@ -242,7 +254,7 @@
             setTimeout(() => {
                 modal.classList.add('opacity-100');
             }, 10);
-            document.body.style.overflow = 'hidden'; // ล็อคหน้าเว็บไม่ให้เลื่อนตอนเปิดรูป
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
@@ -250,10 +262,9 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
             }, 300);
-            document.body.style.overflow = ''; // คืนค่าหน้าเว็บให้เลื่อนได้ปกติ
+            document.body.style.overflow = '';
         }
 
-        // กดปุ่ม Esc บนคีย์บอร์ดเพื่อปิดได้ด้วย
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeModal();
         });

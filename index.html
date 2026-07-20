@@ -29,7 +29,7 @@
         .bg-su-light { background-color: var(--su-green-light); }
         .border-su { border-color: var(--su-green); }
         
-        /* การ์ดโพลารอยด์แนวตั้ง 9:16 น่ารักๆ */
+        /* การ์ดโพลารอยด์น่ารักๆ */
         .polaroid-card {
             background: white;
             padding: 16px 16px 28px 16px;
@@ -44,15 +44,15 @@
             border-color: var(--su-green);
         }
 
-        /* กล่องสำหรับรูปภาพแนวตั้ง 9:16 */
-        .aspect-9-16 {
-            aspect-ratio: 9 / 16;
+        /* 📏 สัดส่วนกระดาษ A4 แนวตั้ง (210mm x 297mm) */
+        .aspect-a4 {
+            aspect-ratio: 210 / 297;
         }
     </style>
 </head>
 <body class="text-gray-800 antialiased">
 
-    <!-- 🌸 ส่วนนำทางบาร์ด้านบน (สีเขียวชัดเจน ขาวละมุน) -->
+    <!-- บาร์นำทางด้านบน -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-su-light shadow-sm">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <span class="text-xl font-bold text-su tracking-wider flex items-center gap-2">
@@ -60,13 +60,13 @@
             </span>
             <div class="flex space-x-6 text-sm font-semibold text-gray-600">
                 <a href="#about" class="hover:text-su transition">เกี่ยวกับฉัน</a>
-                <a href="#gallery" class="hover:text-su transition">ผลงาน 9:16</a>
+                <a href="#gallery" class="hover:text-su transition">ผลงาน A4</a>
                 <a href="#contact" class="hover:text-su transition">ติดต่อหนู</a>
             </div>
         </div>
     </nav>
 
-    <!-- 🌿 Hero Section (ต้อนรับอบอุ่น สว่างสดใส โทนเขียวเด่น) -->
+    <!-- Hero Section -->
     <section class="py-16 px-6 max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
         <div class="md:col-span-7 space-y-6 text-center md:text-left">
             <div class="inline-flex items-center gap-2 bg-su text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">
@@ -77,26 +77,24 @@
                 <span class="text-su text-5xl md:text-6xl font-extrabold tracking-wide">[ชื่อ-นามสกุล ของคุณ]</span>
             </h1>
             <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
-                ยินดีต้อนรับเข้าสู่คลังเก็บแฟ้มสะสมผลงานออนไลน์ค่ะ หน้าเว็บนี้เน้นความสะอาดตา สว่างสดใส และใช้โทนสีเขียวของมหาวิทยาลัยศิลปากร เพื่อแสดงความมุ่งมั่นตั้งใจของหนูค่ะ
+                ยินดีต้อนรับเข้าสู่คลังเก็บแฟ้มสะสมผลงานออนไลน์ค่ะ หน้าเว็บนี้เน้นความสะอาดตา สว่างสดใส และใช้โทนสีเขียวของมหาวิทยาลัยศิลปากร โดยจัดวางสัดส่วนรูปภาพทั้งหมดในขนาด A4 เพื่อให้อาจารย์ตรวจเช็กผลงานได้ง่ายที่สุดค่ะ
             </p>
             <div class="pt-2">
                 <a href="#gallery" class="inline-block bg-su hover:bg-su-dark text-white font-bold px-8 py-4 rounded-2xl shadow-md transition-all transform hover:scale-105 active:scale-95">
-                    💚 คลิกดูผลงานแนวตั้งทั้ง 11 ชิ้น
+                    💚 คลิกดูผลงาน A4 ทั้ง 11 ชิ้น
                 </a>
             </div>
         </div>
         
-        <!-- ขวา: กรอบรูปโปรไฟล์แนวตั้ง 9:16 (เอารูปคนอื่นออกแล้ว) -->
+        <!-- รูปโปรไฟล์ขนาด A4 (ไม่มีรูปตัวอย่างคนอื่น) -->
         <div class="md:col-span-5 flex justify-center">
             <div class="polaroid-card w-72 bg-white transform -rotate-1">
-                <!-- กล่องรูปภาพเปล่า 9:16 พร้อมพื้นหลังไอคอนน่ารัก -->
-                <div class="w-full aspect-9-16 bg-[#EAF5F3] rounded-xl overflow-hidden mb-4 border-2 border-dashed border-su/30 flex flex-col items-center justify-center text-center p-4 relative group">
-                    <!-- โค้ดจะดึงภาพจากโฟลเดอร์อัตโนมัติ ถ้ารูปยังไม่มาจะขึ้นเป็นกรอบน่ารักๆ -->
-                    <img src="images/profile.jpg" alt="Profile" class="absolute inset-0 w-full h-full object-cover error-fallback" onerror="this.style.display='none'">
+                <div class="w-full aspect-a4 bg-[#EAF5F3] rounded-xl overflow-hidden mb-4 border-2 border-dashed border-su/30 flex flex-col items-center justify-center text-center p-4 relative group">
+                    <img src="images/profile.jpg" alt="Profile" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
                     
                     <span class="text-4xl mb-2">📸</span>
-                    <p class="text-su font-bold text-sm">ใส่รูปโปรไฟล์ของคุณ</p>
-                    <p class="text-gray-400 text-[11px] mt-1">ตั้งชื่อไฟล์ภาพว่า: profile.jpg<br>ในโฟลเดอร์ images (ขนาด 9:16)</p>
+                    <p class="text-su font-bold text-sm">รูปโปรไฟล์ของคุณ</p>
+                    <p class="text-gray-400 text-[11px] mt-1">ตั้งชื่อไฟล์ภาพว่า: profile.jpg<br>ในโฟลเดอร์ images (สัดส่วน A4)</p>
                 </div>
                 <div class="text-center pt-2">
                     <p class="font-bold text-su-dark text-lg">[ชื่อเล่นของคุณ]</p>
@@ -106,10 +104,9 @@
         </div>
     </section>
 
-    <!-- 📝 Section ข้อมูลส่วนตัว & การศึกษา (อ่านง่าย ตัวอักษรคมชัด) -->
+    <!-- ข้อมูลส่วนตัว & การศึกษา -->
     <section id="about" class="py-16 bg-white border-y-2 border-su-light px-6">
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-            <!-- ซ้าย: ข้อมูล -->
             <div class="space-y-4">
                 <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2 border-b-2 border-su-light pb-2">
                     <span class="p-1.5 bg-su text-white text-xs rounded-lg">👤</span> ประวัติส่วนตัว
@@ -123,7 +120,6 @@
                     </p>
                 </div>
             </div>
-            <!-- ขวา: การศึกษา -->
             <div class="space-y-4">
                 <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2 border-b-2 border-su-light pb-2">
                     <span class="p-1.5 bg-su text-white text-xs rounded-lg">🎓</span> ประวัติการศึกษา
@@ -145,28 +141,27 @@
         </div>
     </section>
 
-    <!-- 🎨 Section แสดงผลงาน 11 รูปแบบ 9:16 สว่าง สะอาดตา -->
+    <!-- Section Gallery ผลงาน 11 รูป ขนาด A4 -->
     <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
         <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
             <h2 class="text-3xl font-bold text-gray-950 tracking-tight">MY CREATIVE WORKS</h2>
-            <p class="text-su font-bold text-sm bg-white border border-su-light inline-block px-4 py-1 rounded-full shadow-sm">🌿 ผลงานขนาดแนวตั้ง (9:16) ทั้ง 11 ชิ้น 🌿</p>
+            <p class="text-su font-bold text-sm bg-white border border-su-light inline-block px-4 py-1 rounded-full shadow-sm">🌿 แฟ้มผลงานขนาดสัดส่วนกระดาษ A4 ทั้ง 11 ชิ้น 🌿</p>
             <div class="w-20 h-1 bg-su mx-auto rounded-full mt-4"></div>
         </div>
 
-        <!-- Grid Layout แสดงการ์ดโพลารอยด์แนวตั้ง 9:16 เรียงสวยงามอ่านง่ายมาก -->
+        <!-- Grid Layout การ์ดโพลารอยด์ A4 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="portfolio-grid">
-            <!-- วนลูปสร้างการ์ดผลงาน 11 รูปผ่าน JavaScript ด้านล่าง -->
+            <!-- เจนผลงาน 11 ชิ้นด้วย JavaScript -->
         </div>
     </section>
 
-    <!-- 🛑 Light Fullscreen Modal (หน้าต่างป็อปอัปพื้นกระจกสว่าง ดูรูปชัดเจน) -->
+    <!-- 🛑 Light Fullscreen Modal ป๊อปอัปสว่าง ปรับขนาดให้เหมาะกับรูปทรง A4 -->
     <div id="art-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-su-dark/80 backdrop-blur-md transition-opacity duration-300 opacity-0" onclick="closeModal()">
-        <!-- ปุ่มปิดกล่อง -->
         <button class="absolute top-6 right-6 bg-white text-su hover:bg-su-light w-12 h-12 rounded-full text-xl shadow-xl flex items-center justify-center font-bold border-2 border-su" onclick="closeModal()">✕</button>
         
-        <!-- ตัวกล่องผลงานขาวสว่าง -->
+        <!-- ขนาดกล่องปรับขยายเพื่อรองรับ A4 ได้สมบูรณ์แบบ ไม่โดนบีบ -->
         <div class="bg-white rounded-3xl p-5 max-w-md w-full shadow-2xl border-2 border-su flex flex-col items-center" onclick="event.stopPropagation()">
-            <div class="w-full aspect-9-16 overflow-hidden rounded-2xl bg-[#EAF5F3] flex items-center justify-center border border-su-light">
+            <div class="w-full aspect-a4 overflow-hidden rounded-2xl bg-[#EAF5F3] flex items-center justify-center border border-su-light">
                 <img id="modal-img" src="" alt="Zoom Image" class="w-full h-full object-contain">
             </div>
             <div class="p-4 text-center w-full">
@@ -176,24 +171,24 @@
         </div>
     </div>
 
-    <!-- 📞 ช่องทางติดต่อ (ท้ายเว็บโทนเขียวชัดเจน เรียบร้อย น่ารัก) -->
+    <!-- ช่องทางติดต่อ -->
     <section id="contact" class="py-12 bg-white border-t-2 border-su-light px-6 text-center shadow-inner">
         <div class="max-w-3xl mx-auto space-y-6">
             <h3 class="text-xl font-bold text-su flex justify-center items-center gap-2">💌 ติดต่อและให้คำแนะนำหนูได้ที่นี่</h3>
             <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
-                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">📞 โทร: 08X-XXX-XXXX</span>
-                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">✉️ อีเมล: name@email.com</span>
-                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm flex items-center gap-1">📸 IG: @your.art.ig</span>
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm">📞 โทร: 08X-XXX-XXXX</span>
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm">✉️ อีเมล: name@email.com</span>
+                <span class="bg-su-light text-su-dark px-4 py-2 rounded-2xl border border-su/20 shadow-sm">📸 IG: @your.art.ig</span>
             </div>
             <p class="text-xs text-gray-400 font-medium pt-4">© 2026 Portfolio Template. ขอขอบพระคุณคณะกรรมการมหาวิทยาลัยศิลปากรทุกท่านค่ะ</p>
         </div>
     </section>
 
-    <!-- 🛠️ JavaScript เจนการ์ดผลงานแนวตั้ง 9:16 แบบใส่ Placeholder รอไว้ -->
+    <!-- JavaScript เรนเดอร์การ์ดสัดส่วน A4 เปล่า -->
     <script>
         const totalWorks = 11;
         const artworks = [
-            { title: "01 | ผลงานชิ้นเอก / ชนะประกวด", desc: "รายละเอียดชิ้นงาน หรือรางวัลที่ได้รับอย่างภาคภูมิใจชิ้นที่ 1" },
+            { title: "01 | หน้าปก / ผลงานเด่น", desc: "รายละเอียดชิ้นงาน หรือรางวัลที่ได้รับอย่างภาคภูมิใจชิ้นที่ 1" },
             { title: "02 | การออกแบบ / กราฟิกดีไซน์", desc: "รายละเอียดค่าน้ำหนัก แนวคิดโปรเจกต์ หรือโปรแกรมที่ใช้" },
             { title: "03 | ภาพวาด / Fine Art", desc: "เทคนิคการลงสี สื่อผสม หรือแรงบันดาลใจในการวาด" },
             { title: "04 | ภาพสเก็ตช์หุ่นนิ่ง / ลายเส้น", desc: "การฝึกฝนองค์ประกอบศิลป์ ค่าน้ำหนักแสงและเงา" },
@@ -212,19 +207,19 @@
 
             for (let i = 1; i <= totalWorks; i++) {
                 const data = artworks[i-1];
-                const imgUrl = `images/${i}.jpg`; // ลิงก์ตรงดึงจากโฟลเดอร์ images ใน GitHub/เครื่องคอมของคุณ
+                const imgUrl = `images/${i}.jpg`; // ดึงจากโฟลเดอร์ images/1.jpg ถึง 11.jpg ใน GitHub ของคุณ
 
                 html += `
                     <div class="polaroid-card cursor-pointer" onclick="openModal('${imgUrl}', '${data.title}', '${data.desc}')">
-                        <!-- กล่องภาพ 9:16 แบบ Clean เปล่าๆ แสดงกรอบน่ารักถ้ายังไม่มีไฟล์รูป -->
-                        <div class="w-full aspect-9-16 bg-[#EAF5F3] rounded-xl overflow-hidden mb-3 border border-su-light flex flex-col items-center justify-center p-3 relative text-center">
+                        <!-- กรอบเปล่าสัดส่วน A4 แนวตั้ง -->
+                        <div class="w-full aspect-a4 bg-[#EAF5F3] rounded-xl overflow-hidden mb-3 border border-su-light flex flex-col items-center justify-center p-3 relative text-center">
                             
-                            <!-- ตัวรูปภาพจริง (จะซ้อนทับกรอบเปล่าทันทีเมื่ออัปโหลดรูปชื่อ i.jpg เข้ามา) -->
+                            <!-- ดึงรูปภาพจริงมาซ้อนทับกรอบสลอตเปล่าเมื่อไฟล์มาถึง -->
                             <img src="${imgUrl}" alt="${data.title}" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
                             
-                            <span class="text-2xl mb-1 text-su opacity-60">🖼️</span>
+                            <span class="text-2xl mb-1 text-su opacity-60">📄</span>
                             <p class="text-su font-bold text-xs">ผลงานชิ้นที่ ${i}</p>
-                            <p class="text-gray-400 text-[10px] mt-1">ชื่อไฟล์: ${i}.jpg<br>(ขนาดแนวตั้ง 9:16)</p>
+                            <p class="text-gray-400 text-[10px] mt-1">ชื่อไฟล์: ${i}.jpg<br>(ขนาดกระดาษ A4)</p>
                         </div>
                         <div class="space-y-1">
                             <h3 class="font-bold text-su-dark text-sm leading-snug">${data.title}</h3>
@@ -239,7 +234,7 @@
             grid.innerHTML = html;
         }
 
-        // --- ระบบเปิด-ปิด Modal สำหรับส่องรูปใหญ่แนวตั้ง 9:16 ---
+        // ระบบเปิด-ปิด Modal ส่องรูปเต็มจอ (ทรง A4)
         const modal = document.getElementById('art-modal');
         const modalImg = document.getElementById('modal-img');
         const modalTitle = document.getElementById('modal-title');

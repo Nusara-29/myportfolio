@@ -3,206 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Silpakorn University Admission</title>
+    <title>P O R T F O L I O :: Silpakorn Candidate</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Prompt) -->
+    <!-- Google Fonts (Prompt & Sarabun for formal parts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Prompt', sans-serif; background-color: #fafafa; }
-        .bg-silpakorn-dark { background-color: #005B52; }
-        .bg-silpakorn-main { background-color: #007A6E; }
-        .bg-silpakorn-light { background-color: #E6F2F0; }
-        .text-silpakorn { color: #007A6E; }
+        /* 🎨 Custom Silpakorn Palette */
+        :root {
+            --su-veridian: #007A6E; /* สีตั้งแช - ศิลปากร */
+            --su-veridian-dark: #005B52;
+            --su-veridian-light: rgba(0, 122, 110, 0.15);
+            --su-veridian-glow: rgba(0, 255, 221, 0.4);
+            --bg-dark: #050505; /* พื้นหลังเข้มเกือบดำ */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body { 
+            font-family: 'Prompt', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ✨ Glassmorphism & Neon Glow Core */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 🟢 Neon Border Glow on Hover */
+        .glass-card:hover {
+            border-color: var(--su-veridian-glow);
+            box-shadow: 0 0 20px var(--su-veridian-glow), inset 0 0 10px var(--su-veridian-glow);
+            transform: scale(1.02);
+        }
+
+        /* 💡 Backlight Glow (เรืองแสงด้านหลัง) */
+        .glow-bg {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--su-veridian-dark);
+            filter: blur(100px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 🧱 Masonry Grid Layout (การวางแบบอิฐ) */
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 1.5rem;
+            grid-auto-flow: dense; /* ทำให้ช่องว่างถูกเติมเต็ม */
+        }
+
+        /* กราฟิกกรอบเรืองแสงเพิ่มเติม */
+        .neon-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--su-veridian-glow), transparent);
+            filter: drop-shadow(0 0 5px var(--su-veridian-glow));
+        }
+
+        /* 🛑 Fullscreen Modal スタイル */
+        #photo-modal {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+        }
+
     </style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="antialiased">
 
-    <!-- การตั้งค่าตัวแปร GitHub (สำหรับให้คุณแก้ไข) -->
-    <script>
-        // ⚠️ แก้ไขข้อมูลตรงนี้ให้เป็นของคุณเอง ⚠️
-        const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // ใส่ Username GitHub ของคุณ
-        const GITHUB_REPO = 'YOUR_REPO_NAME';           // ใส่ชื่อ Repository ของคุณ
-        const FOLDER_PATH = 'portfolio-images';          // ชื่อโฟลเดอร์ที่เก็บรูป (ไม่ต้องแก้ถ้าตั้งตามขั้นตอน)
-    </script>
+    <!-- Backlight effects -->
+    <div class="glow-bg top-20 left-1/4"></div>
+    <div class="glow-bg bottom-20 right-1/4"></div>
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-silpakorn tracking-wide">PORTFOLIO.</a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-                <a href="#home" class="hover:text-silpakorn transition">หน้าแรก</a>
-                <a href="#about" class="hover:text-silpakorn transition">เกี่ยวกับฉัน</a>
-                <a href="#education" class="hover:text-silpakorn transition">การศึกษา</a>
-                <a href="#projects" class="hover:text-silpakorn transition">ผลงานจาก GitHub</a>
-                <a href="#contact" class="hover:text-silpakorn transition">ติดต่อ</a>
+    <!-- Header / Nav -->
+    <nav class="sticky top-0 z-50 bg-[#050505]/60 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight text-white">PORT<span class="text-[#00FFDD]">.</span></a>
+            <div class="hidden md:flex space-x-2 bg-white/5 rounded-full p-1 border border-white/10 text-sm">
+                <a href="#about" class="px-5 py-2 rounded-full hover:bg-white/10 transition">Me</a>
+                <a href="#gallery" class="px-5 py-2 rounded-full bg-[#007A6E] text-white transition shadow-lg">Works</a>
+                <a href="#contact" class="px-5 py-2 rounded-full hover:bg-white/10 transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-white via-[#F4FAF9] to-[#E6F2F0] px-6 py-12">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6 order-2 md:order-1 text-center md:text-left">
-                <span class="bg-silpakorn-light text-silpakorn font-medium px-4 py-1.5 rounded-full text-sm inline-block shadow-sm border border-emerald-100">
-                    Admission 2026 • มหาวิทยาลัยศิลปากร
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                <span class="inline-block bg-[#007A6E]/20 text-[#00FFDD] border border-[#007A6E]/30 px-4 py-1 rounded-full text-xs font-semibold tracking-wider uppercase">
+                    SU CANDIDATE • ADMISSION 2026
                 </span>
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                    สวัสดีค่ะ, ฉันชื่อ <br>
-                    <span class="text-silpakorn">[ชื่อ-นามสกุลของคุณ]</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-none tracking-tighter">
+                    CREATIVE<br>EXPLORER<span class="text-[#00FFDD]">.</span>
                 </h1>
-                <p class="text-gray-600 text-lg max-w-md mx-auto md:mx-0">
-                    ยินดีต้อนรับสู่เว็บพอร์ตโฟลิโอ คณะ[ระบุคณะ] มหาวิทยาลัยศิลปากร ด้านล่างนี้คือผลงานทั้งหมดที่ดึงแบบ Real-time มาจาก GitHub ของฉันค่ะ
+                <p class="text-gray-400 text-lg max-w-xl mx-auto md:mx-0 font-light leading-relaxed">
+                    สวัสดีค่ะ ฉันชื่อ <span class="text-white font-medium">[ชื่อของคุณ]</span> หลงใหลในการเล่าเรื่องผ่านศิลปะ นี่คือคลังผลงานที่ฉันรวบรวมมาเพื่อยื่นเข้าศึกษาต่อใน คณะ<span class="text-white font-medium">[ชื่อคณะ]</span> มหาวิทยาลัยศิลปากรค่ะ
                 </p>
-                <div class="pt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-silpakorn-main hover:bg-silpakorn-dark text-white font-medium px-8 py-3.5 rounded-2xl shadow-lg shadow-emerald-900/10 transition-all transform hover:-translate-y-1 text-center">
-                        ดูผลงานของฉัน
-                    </a>
-                </div>
             </div>
+            <div class="md:col-span-5 flex justify-center relative">
+                <!-- กรอบรูปโปรไฟล์แบบเรืองแสง -->
+                <div class="glass-card w-72 h-72 p-2 border-2" style="border-radius: 50% 50% 30% 70% / 50% 30% 70% 50%;">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000" alt="Profile" class="w-full h-full object-cover" style="border-radius: inherit;">
+                    <div class="neon-accent"></div>
+                </div>
+                <div class="absolute inset-0 w-80 h-80 bg-[#00FFDD] blur-[100px] opacity-10 rounded-full -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧱 Works Gallery Section (The Kinetic Glass Grid) -->
+    <section id="gallery" class="py-24 px-6 bg-white/[0.01] border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto">
             
-            <!-- รูปโปรไฟล์หลัก -->
-            <div class="order-1 md:order-2 flex justify-center">
-                <div class="relative w-72 h-72 md:w-96 md:h-96">
-                    <div class="absolute inset-0 bg-silpakorn-main rounded-3xl rotate-6 opacity-20 animate-pulse"></div>
-                    <div class="absolute inset-0 bg-[#D4AF37] rounded-3xl -rotate-3 opacity-10"></div>
-                    <div class="absolute inset-0 bg-gray-200 rounded-3xl overflow-hidden border-4 border-white shadow-xl">
-                        <!-- คุณสามารถอัปโหลดรูปตัวเองชื่อ profile.jpg ไว้ในโฟลเดอร์แล้วเปลี่ยนลิงก์ตรงนี้ได้ -->
-                        <img id="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000" alt="Profile" class="w-full h-full object-cover">
-                    </div>
+            <div class="mb-16 flex justify-between items-end gap-4">
+                <div class="space-y-2">
+                    <h2 class="text-4xl font-bold text-white tracking-tight">SELECTED WORKS</h2>
+                    <p class="text-gray-500 max-w-md text-sm">การจัดวางแบบใหม่ Masonry Grid พร้อมเอฟเฟกต์กระจกเรืองแสง</p>
                 </div>
+                <span class="text-6xl font-extrabold text-white/5 tracking-tighter">11.</span>
+            </div>
+
+            <div id="portfolio-masonry" class="masonry-grid">
+                <!-- 🔥 โค้ด JavaScript จะเจนผลงาน 11 รูป มาวางที่นี่ -->
             </div>
         </div>
     </section>
 
-    <!-- About & Education (ย่อรวมกันเพื่อความมินิมอล) -->
-    <section id="about" class="py-20 bg-white px-6">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="space-y-4">
-                <h2 class="text-2xl font-bold text-gray-900 border-l-4 border-silpakorn pl-3">ประวัติส่วนตัว</h2>
-                <p class="text-gray-600"><strong>แผนการเรียน:</strong> ศิลป์-คำนวณ / วิทย์-คณิต</p>
-                <p class="text-gray-600"><strong>โรงเรียน:</strong> [ระบุชื่อโรงเรียนของคุณ]</p>
-                <p class="text-gray-600">มีความตั้งใจที่จะเข้าศึกษาต่อเพื่อนำทักษะสร้างสรรค์มาพัฒนาและเรียนรู้ในสังคมวิชาการของมหาวิทยาลัยศิลปากร</p>
+    <!-- 🛑 Fullscreen Photo Modal -->
+    <div id="photo-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 transition-opacity duration-300 opacity-0" onclick="closeModal()">
+        <!-- Button ขวาบนสำหรับปิด -->
+        <button class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl font-light" onclick="closeModal()">✕</button>
+        
+        <!-- รูปใหญ่ -->
+        <div class="glass-card p-2 max-w-[90vw] max-h-[85vh] relative" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" alt="Full Screen" class="rounded-xl object-contain max-h-[80vh]">
+            <div class="p-4 text-center">
+                <h3 id="modal-title" class="text-xl font-semibold text-white"></h3>
+                <p id="modal-desc" class="text-sm text-gray-400 mt-1"></p>
             </div>
-            <div id="education" class="space-y-4">
-                <h2 class="text-2xl font-bold text-gray-900 border-l-4 border-silpakorn pl-3">การศึกษา</h2>
-                <div class="border-l-2 border-emerald-100 pl-4 space-y-3">
-                    <div>
-                        <span class="text-xs text-silpakorn font-bold">พ.ศ. 2566 - 2569</span>
-                        <p class="text-sm font-semibold text-gray-800">มัธยมศึกษาตอนปลาย (GPAX: X.XX)</p>
-                    </div>
-                    <div>
-                        <span class="text-xs text-silpakorn font-bold">พ.ศ. 2563 - 2566</span>
-                        <p class="text-sm font-semibold text-gray-800">มัธยมศึกษาตอนต้น (GPAX: X.XX)</p>
-                    </div>
-                </div>
+            <div class="neon-accent"></div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-3xl mx-auto text-center space-y-8 glass-card p-12 border-2 border-[#007A6E]/30 relative">
+            <h2 class="text-3xl font-bold text-white">GET IN TOUCH</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-300">
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFDD]/50 transition"><p class="text-xs text-[#00FFDD]">IG</p><p class="font-medium mt-1">@your.art</p></div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFDD]/50 transition"><p class="text-xs text-[#00FFDD]">Email</p><p class="font-medium mt-1">me@art.co</p></div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFDD]/50 transition"><p class="text-xs text-[#00FFDD]">Phone</p><p class="font-medium mt-1">081234567</p></div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFDD]/50 transition"><p class="text-xs text-[#00FFDD]">Line</p><p class="font-medium mt-1">line_id</p></div>
             </div>
+            <div class="neon-accent"></div>
         </div>
     </section>
 
-    <!-- Dynamic Portfolio Section (ส่วนดึงภาพอัตโนมัติ) -->
-    <section id="projects" class="py-20 bg-silpakorn-light/50 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-gray-950 mb-3">ผลงานและกิจกรรม</h2>
-                <div class="w-12 h-1 bg-silpakorn-main mx-auto rounded-full mb-4"></div>
-                <p class="text-gray-500 text-sm">รูปภาพทั้งหมดถูกดึงมาจากระบบคลังผลงานบน GitHub Repository โดยอัตโนมัติ</p>
-            </div>
+    <footer class="py-10 text-center text-xs text-gray-600 border-t border-white/5">
+        © 2026 ART PORTFOLIO | For Silpakorn University Candidate
+    </footer>
 
-            <!-- กล่องโหลดข้อมูลหมุนๆ -->
-            <div id="loading" class="text-center py-12">
-                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-silpakorn border-t-transparent"></div>
-                <p class="text-gray-500 text-sm mt-2">กำลังดึงรูปภาพจาก GitHub...</p>
-            </div>
-
-            <!-- Grid ผลงานจะมาโผล่ตรงนี้ -->
-            <div id="portfolio-grid" class="grid md:grid-cols-3 gap-8 hidden">
-                <!-- เจนโค้ดการ์ดผลงานผ่าน JavaScript ด้านล่าง -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-silpakorn-dark text-white px-6">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
-            <h2 class="text-3xl font-bold">ช่องทางการติดต่อ</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">เบอร์โทร</p><p class="font-semibold mt-1">08X-XXX-XXXX</p></div>
-                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">อีเมล</p><p class="font-semibold mt-1">your@email.com</p></div>
-                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">Instagram</p><p class="font-semibold mt-1">@your.ig</p></div>
-                <div class="p-4 bg-white/5 rounded-2xl backdrop-blur"><p class="text-emerald-200 text-xs">GitHub</p><p class="font-semibold mt-1">github.com/...</p></div>
-            </div>
-            <p class="text-xs text-emerald-200/40 pt-12">© 2026 Portfolio for Silpakorn University Admission.</p>
-        </div>
-    </section>
-
-    <!-- JavaScript สำหรับการ Fetch ข้อมูลจาก GitHub API -->
+    <!-- 🛠️ JavaScript: Masonry Generator & Modal -->
     <script>
-        async function loadGitHubImages() {
-            const grid = document.getElementById('portfolio-grid');
-            const loading = document.getElementById('loading');
-            
-            // สร้าง URL สำหรับเรียก GitHub API
-            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${FOLDER_PATH}`;
+        // ข้อมูลผลงาน 11 รูป
+        const TOTAL_WORKS = 11;
+        const workData = [
+            { title: "Conceptual Sketch", desc: "วาดด้วยดินสอโฮโลแกรม", span: 'md:col-span-2 md:row-span-2' }, // แผ่นใหญ่
+            { title: "Digital Painting", desc: "Procreate, 2026" },
+            { title: "3D Model Art", desc: "Blender rendering" },
+            { title: "Poster Design", desc: "Adobe Illustrator", span: 'md:row-span-2' }, // แนวตั้ง
+            { title: "Water Color", desc: "ภาพสีน้ำลงบนกระดาษฝ้า" },
+            { title: "Logo Identity", desc: "Branding Project" },
+            { title: "Photography", desc: "Street Life, Bangkok", span: 'md:col-span-2' }, // แนวนอน
+            { title: "Typography Art", desc: "Experimental Type" },
+            { title: "Mixed Media", desc: "งานคอลลาจ" },
+            { title: "Fashion Design", desc: "Sketchbook collection" },
+            { title: "Final Project", desc: "งานจัดแสดงจบการศึกษา", span: 'md:col-span-2' },
+        ];
 
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error('ไม่สามารถเข้าถึง Repository ได้ กรุณาตรวจสอบ Username และชื่อ Repo');
-                
-                const files = await response.json();
-                
-                // กรองเฉพาะไฟล์ที่เป็นรูปภาพ
-                const validExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
-                const imageFiles = files.filter(file => {
-                    const ext = file.name.split('.').pop().toLowerCase();
-                    return validExtensions.includes(ext);
-                });
+        function generateMasonry() {
+            const grid = document.getElementById('portfolio-masonry');
+            let html = '';
 
-                if(imageFiles.length === 0) {
-                    grid.innerHTML = `<p class="text-center text-gray-500 col-span-full py-8">ไม่พบไฟล์รูปภาพในโฟลเดอร์ "${FOLDER_PATH}"</p>`;
-                } else {
-                    let htmlContent = '';
-                    
-                    imageFiles.forEach(file => {
-                        // แยกชื่อไฟล์ออกเพื่อทำเป็น หัวข้อ (Title) และ คำอธิบาย (Description)
-                        // สมมติชื่อไฟล์: "รางวัลชนะเลิศ - ประกวดวาดภาพระดับจังหวัด.jpg"
-                        const nameWithoutExt = file.name.substring(0, file.name.lastIndexOf('.'));
-                        const nameParts = nameWithoutExt.split(' - ');
-                        
-                        const title = nameParts[0] ? nameParts[0].trim() : 'ผลงานแฟ้มสะสม';
-                        const description = nameParts[1] ? nameParts[1].trim() : 'ภาพกิจกรรม/ผลงานที่อัปโหลดผ่าน GitHub';
-                        
-                        // สร้างโครงสร้างการ์ดรูปภาพ (ดีไซน์โค้งมน ทันสมัย แบบผู้หญิง)
-                        htmlContent += `
-                            <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-2 group">
-                                <div class="h-56 bg-gray-100 overflow-hidden relative">
-                                    <img src="${file.download_url}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                </div>
-                                <div class="p-6 space-y-2">
-                                    <span class="text-[11px] font-bold text-silpakorn bg-silpakorn-light px-2.5 py-1 rounded-full uppercase tracking-wider">Activity</span>
-                                    <h3 class="font-bold text-gray-900 text-base leading-tight pt-1">${title}</h3>
-                                    <p class="text-gray-500 text-xs leading-relaxed">${description}</p>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    grid.innerHTML = htmlContent;
-                }
-            } catch (error) {
-                console.error(error);
-                grid.innerHTML = `<p class="text-center text-red-500 col-span-full py-8">❌ เกิดข้อผิดพลาด: ${error.message}<br><span class="text-xs text-gray-400">กรุณาตรวจสอบการตั้งค่าตัวแปรภาษาอังกฤษที่หัวเว็บให้ถูกต้อง</span></p>`;
-            } finally {
-                loading.classList.add('hidden');
-                grid.classList.remove('hidden');
+            for (let i = 1; i <= TOTAL_WORKS; i++) {
+                const data = workData[i-1] || { title: `Work ${i}`, desc: 'Artwork description' };
+                const imgPath = `images/${i}.jpg`;
+                const spanClass = data.span || ''; // เพิ่ม Class สำหรับการวาง
+
+                // ถ้าไม่มีรูปจริง ให้ใช้รูป Placeholder (ลบส่วนนี้ออกเมื่อมีรูปจริง)
+                const finalImgPath = `https://api.dicebear.com/8.x/icons/svg?seed=art${i}`; 
+                // บรรทัดบนคือ Placeholder นะคะ **ถ้ามีรูปจริงให้เปลี่ยนเป็น:**
+                // const finalImgPath = imgPath;
+
+                html += `
+                    <div class="glass-card group cursor-pointer ${spanClass}" onclick="openModal('${finalImgPath}', '${data.title}', '${data.desc}')">
+                        <div class="w-full h-full overflow-hidden">
+                            <img src="${finalImgPath}" alt="${data.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <!-- เคลือบเรืองแสงบางๆ บนรูป -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                            <h3 class="text-lg font-semibold text-white tracking-tight modal-trigger">${data.title}</h3>
+                            <p class="text-xs text-gray-300">${data.desc}</p>
+                        </div>
+                        <div class="neon-accentopacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                `;
             }
+            grid.innerHTML = html;
         }
 
-        // สั่งให้ฟังก์ชันทำงานเมื่อเปิดหน้าเว็บ
-        window.addEventListener('DOMContentLoaded', loadGitHubImages);
+        // --- ฟังก์ชัน Modal เต็มจอ ---
+        const modal = document.getElementById('photo-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+
+        function openModal(imgSrc, title, desc) {
+            modalImg.src = imgSrc;
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // ปิดสกロールหน้าเว็บ
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = ''; // เปิดสกロールหน้าเว็บ
+        }
+
+        // ฟังปุ่ม Esc สำหรับปิด Modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', generateMasonry);
     </script>
 </body>
 </html>

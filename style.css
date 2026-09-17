@@ -1612,4 +1612,468 @@ a {
 
         letter-spacing: 3px;
     }
+   /* =====================================================
+   แก้ตามที่ขอ — ไม่รื้อ CSS เดิม
+===================================================== */
+
+
+/* 1. ปุ่มหน้าแรก แนะนำตัว / ผลงาน */
+
+.hero-buttons .btn.primary {
+    background: #ffe15b;
+    color: #65101b;
+    border: 2px solid #ffe15b;
+}
+
+.hero-buttons .btn.secondary {
+    background: #ffffff;
+    color: #97182a;
+    border: 2px solid #ffffff;
+}
+
+.hero-buttons .btn.primary:hover {
+    background: #ffffff;
+    color: #97182a;
+}
+
+.hero-buttons .btn.secondary:hover {
+    background: #ffe15b;
+    color: #65101b;
+}
+
+
+/* 2. สีเมนูด้านบน */
+
+.navbar nav a {
+    color: #97182a;
+    font-weight: 500;
+}
+
+.navbar nav a:hover {
+    color: #ffffff;
+    background: #97182a;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+
+/* 3. ABOUT ME
+   รูปซ้าย / ข้อมูลขวา
+*/
+
+.profile-card {
+    width: min(1100px, 92%);
+    margin: 50px auto 0;
+
+    display: grid;
+    grid-template-columns: 42% 58%;
+
+    align-items: center;
+
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px rgba(120, 0, 0, 0.12);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        145deg,
+        #fff4f4,
+        #ffe3e3
+    );
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 420px;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 22px;
+
+    object-fit: contain;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.profile-image img:hover {
+    transform: scale(1.02);
+}
+
+.profile-text {
+    padding: 45px 50px;
+
+    text-align: left;
+
+    min-width: 0;
+}
+
+.profile-text h3 {
+    margin: 0 0 20px;
+
+    color: #9e1717;
+
+    font-size: 30px;
+}
+
+.profile-text > p {
+    margin: 10px 0;
+
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.info-box {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+.info-box > div {
+    min-width: 0;
+
+    padding: 17px 20px;
+
+    background: #fff6f6;
+
+    border-left: 5px solid #b51d1d;
+
+    border-radius: 14px;
+}
+
+.info-box strong {
+    display: block;
+
+    color: #9e1717;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+.info-box p {
+    margin: 0;
+
+    color: #555;
+
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* 4. ชื่อผลงานไม่ให้ล้นออกนอกการ์ด */
+
+.works-grid {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+.work-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.work-card > img {
+    width: 100%;
+    display: block;
+}
+
+.work-content {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.work-content h3 {
+    max-width: 100%;
+
+    margin-bottom: 8px;
+
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+
+    word-break: normal;
+}
+
+.work-content p {
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+
+    word-break: normal;
+}
+
+
+/* =====================================================
+   5. กิจกรรมเพิ่มเติม + เกียรติบัตร
+===================================================== */
+
+/*
+   สำคัญ:
+   ส่วนนี้จะทำงานกับ HTML ที่แก้ด้านล่าง
+*/
+
+.activity-certificate-layout {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+.activity-box,
+.certificate-box {
+    min-width: 0;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
+}
+
+.activity-box img,
+.certificate-box img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.activity-box img:hover,
+.certificate-box img:hover {
+    transform: scale(1.01);
+}
+
+
+/* =====================================================
+   6. THANK YOU + เป้าหมายในอนาคต
+===================================================== */
+
+.future-thank-layout {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+.future-thank-image {
+    min-width: 0;
+
+    padding: 15px;
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
+}
+
+.future-thank-image img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.future-thank-right {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* เป้าหมายในอนาคต */
+
+.future-thank-right .future-content {
+    width: 100%;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.10);
+}
+
+.future-thank-right .future-content > p {
+    color: #981829;
+
+    letter-spacing: 5px;
+}
+
+.future-thank-right .future-content h2 {
+    color: #891525;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+}
+
+.future-box {
+    margin-top: 25px;
+
+    padding: 22px;
+
+    background: #fff8d6;
+
+    border-radius: 18px;
+
+    border-left: 5px solid #e5c52e;
+}
+
+.future-box h3 {
+    color: #981829;
+
+    margin-bottom: 8px;
+}
+
+.future-box p {
+    color: #555;
+
+    margin-bottom: 5px;
+}
+
+.future-box strong {
+    color: #981829;
+}
+
+
+/* THANK YOU อยู่ใต้เป้าหมาย */
+
+.future-thank-right .thank-content {
+    padding: 30px 25px;
+
+    text-align: center;
+
+    background: #650d18;
+
+    color: #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.15);
+}
+
+.future-thank-right .thank-content h2 {
+    color: #ffe15b;
+
+    font-size: 48px;
+
+    letter-spacing: 5px;
+}
+
+.future-thank-right .thank-content p {
+    margin-top: 10px;
+
+    color: #ffffff;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   RESPONSIVE — เฉพาะส่วนที่แก้
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-text {
+        padding: 30px 25px;
+    }
+
+    .activity-certificate-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .future-thank-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .future-thank-right .future-content h2 {
+        font-size: 32px;
+    }
+
+    .future-thank-right .thank-content h2 {
+        font-size: 38px;
+    }
+
+}
 }

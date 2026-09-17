@@ -94,19 +94,38 @@ a {
     letter-spacing: 1px;
 }
 
+
+/* =====================================================
+   NAV MENU
+   ===================================================== */
+
 .navbar nav {
     display: flex;
-    gap: 30px;
+    gap: 18px;
+    align-items: center;
 }
 
 .navbar nav a {
-    color: #46151d;
-    font-size: 15px;
+    color: #ffffff;
+    background: #97182a;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    padding: 9px 17px;
+
+    border-radius: 30px;
+
     transition: 0.3s;
 }
 
 .navbar nav a:hover {
-    color: #c39b00;
+    color: #65101b;
+    background: #ffe15b;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 7px 18px rgba(90, 10, 20, 0.15);
 }
 
 
@@ -141,20 +160,27 @@ a {
 
 .hero-content {
     width: 55%;
+
     position: relative;
     z-index: 2;
 }
 
-.hero-small-title {
+.hero-small-title,
+.small-title {
     color: #ffe15b;
+
     letter-spacing: 7px;
+
     font-size: 18px;
+
     margin-bottom: 15px;
 }
 
 .hero h1 {
     font-size: clamp(48px, 7vw, 82px);
+
     line-height: 1.05;
+
     font-weight: 700;
 }
 
@@ -162,24 +188,31 @@ a {
     color: #ffe15b;
 }
 
-.hero-school {
+.hero-school,
+.school {
     margin-top: 28px;
+
     font-size: 22px;
 }
 
-.hero-class {
+.hero-class,
+.class {
     opacity: 0.85;
+
     margin-top: 5px;
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 15px;
+
     margin-top: 35px;
 }
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -190,26 +223,66 @@ a {
     font-weight: 500;
 
     transition: 0.3s;
+
+    cursor: pointer;
 }
 
 .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.2);
 }
 
-.btn-yellow {
+
+/* ปุ่มแนะนำตัว */
+
+.btn-yellow,
+.btn.primary {
     background: #ffe15b;
+
+    color: #65101b;
+
+    border: 2px solid #ffe15b;
+}
+
+
+/* ปุ่มผลงาน */
+
+.btn-white,
+.btn.secondary {
+    background: white;
+
+    color: #8d1525;
+
+    border: 2px solid white;
+}
+
+.btn-yellow:hover,
+.btn.primary:hover {
+    background: #fff0a3;
+
     color: #65101b;
 }
 
-.btn-white {
-    background: white;
-    color: #8d1525;
+.btn-white:hover,
+.btn.secondary:hover {
+    background: #97182a;
+
+    color: white;
 }
 
-.hero-photo {
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-photo,
+.hero-image {
     width: 37%;
+
     position: relative;
+
     z-index: 2;
 }
 
@@ -226,8 +299,10 @@ a {
         0 25px 60px rgba(0,0,0,0.3);
 }
 
-.hero-photo-frame img {
+.hero-photo-frame img,
+.hero-image img {
     display: block;
+
     width: 100%;
 
     border-radius: 20px;
@@ -235,13 +310,16 @@ a {
 
 .circle {
     position: absolute;
+
     border-radius: 50%;
+
     background: rgba(255,255,255,0.08);
 }
 
 .circle-one {
     width: 450px;
     height: 450px;
+
     right: -180px;
     top: -130px;
 }
@@ -249,6 +327,7 @@ a {
 .circle-two {
     width: 300px;
     height: 300px;
+
     left: -150px;
     bottom: -150px;
 }
@@ -264,17 +343,21 @@ a {
 
 .section-heading {
     text-align: center;
+
     margin-bottom: 55px;
 }
 
 .section-heading span {
     color: #a21a2c;
+
     font-size: 14px;
+
     letter-spacing: 5px;
 }
 
 .section-heading h2 {
     font-size: 38px;
+
     margin-top: 5px;
 }
 
@@ -292,6 +375,7 @@ a {
 
 /* =====================================================
    ABOUT
+   รูปซ้าย / ABOUT ME ขวา
 ===================================================== */
 
 .about-section {
@@ -327,11 +411,13 @@ a {
 
 .about-info {
     display: grid;
+
     gap: 18px;
 }
 
 .info-card {
     display: flex;
+
     align-items: center;
 
     gap: 18px;
@@ -358,12 +444,152 @@ a {
 
 .info-card h3 {
     color: #981829;
+
     font-size: 17px;
 }
 
 .info-card p {
     color: #666;
+
     line-height: 1.7;
+}
+
+
+/* =====================================================
+   PROFILE
+   สำหรับ index.html ที่ใช้ profile-card
+===================================================== */
+
+.profile-card {
+    width: min(1100px, 92%);
+
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+
+    align-items: center;
+
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px rgba(120, 0, 0, 0.12);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4f4,
+            #ffe3e3
+        );
+}
+
+.profile-image img {
+    width: 100%;
+
+    max-width: 420px;
+
+    height: auto;
+
+    display: block;
+
+    border-radius: 22px;
+
+    object-fit: contain;
+
+    transition: 0.4s ease;
+
+    cursor: pointer;
+}
+
+.profile-image img:hover {
+    transform: scale(1.025);
+}
+
+.profile-text {
+    padding: 45px 50px;
+
+    text-align: left;
+
+    min-width: 0;
+}
+
+.profile-text h3 {
+    margin: 0 0 20px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    color: #9e1717;
+}
+
+.profile-text > p {
+    margin: 10px 0;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #555;
+}
+
+.info-box {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+.info-box > div {
+    padding: 17px 20px;
+
+    background: #fff6f6;
+
+    border-left: 5px solid #b51d1d;
+
+    border-radius: 14px;
+
+    min-width: 0;
+}
+
+.info-box strong {
+    display: block;
+
+    color: #9e1717;
+
+    font-size: 17px;
+
+    margin-bottom: 4px;
+}
+
+.info-box p {
+    margin: 0;
+
+    color: #555;
+
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -412,7 +638,8 @@ a {
     transform: scale(1.01);
 }
 
-.sop-content {
+.sop-content,
+.sop-text {
     min-width: 0;
 }
 
@@ -440,11 +667,13 @@ a {
 
 .sop-text::-webkit-scrollbar-track {
     background: #f3e4e6;
+
     border-radius: 20px;
 }
 
 .sop-text::-webkit-scrollbar-thumb {
     background: #981829;
+
     border-radius: 20px;
 }
 
@@ -488,14 +717,21 @@ a {
 }
 
 .works-grid {
+    width: min(1150px, 92%);
+
+    margin: 0 auto;
+
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
     gap: 25px;
 }
 
 .work-card {
+    min-width: 0;
+
     overflow: hidden;
 
     background: white;
@@ -517,6 +753,7 @@ a {
 
 .work-image {
     position: relative;
+
     overflow: hidden;
 }
 
@@ -538,11 +775,13 @@ a {
     position: absolute;
 
     right: 0;
+
     top: 20px;
 
     padding: 8px 12px;
 
     background: #971829;
+
     color: white;
 
     font-size: 10px;
@@ -552,110 +791,94 @@ a {
     writing-mode: vertical-rl;
 }
 
-.work-text {
+
+/* เนื้อหาการ์ด */
+
+.work-text,
+.work-content {
     padding: 22px;
+
+    min-width: 0;
+
+    overflow: hidden;
 }
 
-.work-text h3 {
+.work-text h3,
+.work-content h3 {
     color: #981829;
 
     font-size: 19px;
 
     margin-bottom: 8px;
+
+    line-height: 1.45;
+
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+
+    word-break: normal;
 }
 
-.work-text p {
+.work-text p,
+.work-content p {
     color: #777;
 
     line-height: 1.8;
+
+    overflow-wrap: anywhere;
+
+    word-break: normal;
+}
+
+.work-number {
+    display: inline-block;
+
+    margin-bottom: 7px;
+
+    color: #b51d1d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
 }
 
 
 /* =====================================================
-   EXPERIENCE
+   ACTIVITY + CERTIFICATE
+   กิจกรรมเพิ่มเติมซ้าย / เกียรติบัตรขวา
 ===================================================== */
 
-.experience-section {
-    background: #79101e;
+.activity-certificate-section {
+    padding: 100px 9%;
 
-    color: white;
-}
-
-.experience-section .section-heading span {
-    color: #ffe15b;
-}
-
-.experience-section .section-heading h2 {
-    color: white;
-}
-
-.experience-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.experience-card {
-    padding: 30px 22px;
-
-    border-radius: 22px;
-
-    background: rgba(255,255,255,0.08);
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    transition: 0.3s;
-}
-
-.experience-card:hover {
-    transform: translateY(-8px);
-
-    background: rgba(255,255,255,0.14);
-}
-
-.experience-icon {
-    font-size: 38px;
-
-    margin-bottom: 15px;
-}
-
-.experience-card h3 {
-    color: #ffe15b;
-
-    margin-bottom: 10px;
-}
-
-.experience-card p {
-    line-height: 1.8;
-
-    opacity: 0.85;
-}
-
-
-/* =====================================================
-   CERTIFICATE
-===================================================== */
-
-.certificate-section {
     background: #fff8f8;
 }
 
-.certificate-container {
-    max-width: 1100px;
+.two-column-layout {
+    max-width: 1200px;
 
-    margin: auto;
-
-    padding: 25px;
+    margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    gap: 45px;
+    gap: 35px;
 
-    align-items: center;
+    align-items: stretch;
+}
+
+
+/* กล่องกิจกรรมเพิ่มเติม */
+
+.additional-activity {
+    min-width: 0;
+
+    padding: 25px;
 
     background: white;
 
@@ -663,20 +886,80 @@ a {
 
     box-shadow:
         0 20px 50px rgba(100,10,20,0.12);
+
+    overflow: hidden;
+}
+
+.additional-activity img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.additional-activity img:hover {
+    transform: scale(1.01);
+}
+
+
+/* กล่องเกียรติบัตร */
+
+.two-column-layout .certificate-section {
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
+
+    min-width: 0;
+}
+
+.certificate-container {
+    width: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 0;
+
+    display: block;
+
+    background: transparent;
+
+    border-radius: 0;
+
+    box-shadow: none;
 }
 
 .certificate-image img {
     width: 100%;
 
+    display: block;
+
     border-radius: 20px;
 
     cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.certificate-image img:hover {
+    transform: scale(1.01);
 }
 
 .certificate-text {
     position: relative;
 
-    padding: 25px;
+    padding: 25px 5px 5px;
 }
 
 .certificate-text h3 {
@@ -684,7 +967,7 @@ a {
 
     font-size: 28px;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .certificate-text p {
@@ -699,6 +982,7 @@ a {
     position: absolute;
 
     right: -5px;
+
     top: 0;
 
     padding: 10px 7px;
@@ -716,21 +1000,89 @@ a {
 
 
 /* =====================================================
-   FUTURE
+   FUTURE + THANK YOU
+   รูป THANK YOU ซ้าย
+   เป้าหมายอนาคตขวา
 ===================================================== */
 
-.future-section {
+.future-thank-section {
     padding: 100px 9%;
 
     background: #f2d8dd;
 }
 
-.future-card {
-    max-width: 800px;
+.future-thank-layout {
+    max-width: 1200px;
 
-    margin: auto;
+    margin: 0 auto;
 
-    padding: 60px 30px;
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+
+/* รูป THANK YOU */
+
+.thank-image {
+    min-width: 0;
+
+    padding: 15px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
+}
+
+.thank-image img {
+    width: 100%;
+
+    display: block;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    object-fit: contain;
+
+    transition: 0.3s;
+}
+
+.thank-image img:hover {
+    transform: scale(1.01);
+}
+
+
+/* ฝั่งขวา */
+
+.future-thank-content {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   FUTURE
+===================================================== */
+
+.future-content {
+    width: 100%;
+
+    padding: 45px 35px;
 
     text-align: center;
 
@@ -746,8 +1098,11 @@ a {
     color: #981829;
 
     letter-spacing: 5px;
+
+    font-size: 15px;
 }
 
+.future-content h2,
 .future-card h2 {
     color: #891525;
 
@@ -758,6 +1113,7 @@ a {
 
 .future-line {
     width: 70px;
+
     height: 5px;
 
     margin: 20px auto;
@@ -776,8 +1132,82 @@ a {
 }
 
 
+/* ถ้า HTML เดิมยังใช้ future-card */
+
+.future-card {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.1);
+}
+
+
+/* =====================================================
+   THANK YOU TEXT
+   อยู่ใต้เป้าหมายอนาคต
+===================================================== */
+
+.thank-content {
+    width: 100%;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #650d18;
+
+    color: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.15);
+}
+
+.thank-content h2 {
+    color: #ffe15b;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    letter-spacing: 5px;
+
+    line-height: 1.1;
+}
+
+.thank-content p {
+    margin-top: 10px;
+
+    color: white;
+
+    opacity: 0.9;
+
+    line-height: 1.7;
+}
+
+.thank-content .footer-name {
+    font-size: 21px;
+
+    margin-top: 25px;
+}
+
+.thank-content .footer-school {
+    color: #ffe15b;
+}
+
+
 /* =====================================================
    FOOTER
+   รองรับ HTML เดิม
 ===================================================== */
 
 .footer {
@@ -843,6 +1273,7 @@ a {
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 30px;
@@ -858,6 +1289,7 @@ a {
 
 .lightbox img {
     max-width: 90%;
+
     max-height: 90%;
 
     border-radius: 15px;
@@ -870,6 +1302,7 @@ a {
     position: absolute;
 
     right: 30px;
+
     top: 15px;
 
     border: none;
@@ -916,7 +1349,13 @@ a {
     }
 
     .navbar nav {
-        gap: 15px;
+        gap: 8px;
+    }
+
+    .navbar nav a {
+        padding: 8px 12px;
+
+        font-size: 13px;
     }
 
     .hero {
@@ -926,21 +1365,78 @@ a {
 
     .about-container,
     .sop-container,
-    .certificate-container,
     .footer {
         grid-template-columns: 1fr;
     }
 
+    .profile-card {
+        grid-template-columns: 42% 58%;
+    }
+
     .works-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .experience-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
+    .two-column-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .future-thank-layout {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+    }
 }
 
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        padding: 20px;
+    }
+
+    .profile-image img {
+        max-width: 500px;
+    }
+
+    .profile-text {
+        padding: 30px 25px;
+    }
+
+    .works-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .work-text,
+    .work-content {
+        padding: 18px;
+    }
+
+    .work-text h3,
+    .work-content h3 {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 700px) {
 
@@ -967,7 +1463,8 @@ a {
     }
 
     .hero-content,
-    .hero-photo {
+    .hero-photo,
+    .hero-image {
         width: 100%;
     }
 
@@ -977,7 +1474,8 @@ a {
         flex-wrap: wrap;
     }
 
-    .hero-school {
+    .hero-school,
+    .school {
         font-size: 18px;
     }
 
@@ -989,7 +1487,10 @@ a {
         font-size: 30px;
     }
 
-    .works-grid,
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
     .experience-grid {
         grid-template-columns: 1fr;
     }
@@ -998,50 +1499,117 @@ a {
         height: 500px;
     }
 
+    .profile-text h3 {
+        font-size: 26px;
+    }
+
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-certificate-section {
+        padding: 70px 6%;
+    }
+
+    .future-thank-section {
+        padding: 70px 6%;
+    }
+
+    .future-thank-layout {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .future-content {
+        padding: 35px 22px;
+    }
+
+    .future-content h2,
+    .future-card h2 {
+        font-size: 32px;
+    }
+
+    .future-school {
+        font-size: 18px;
+    }
+
+    .thank-content {
+        padding: 30px 20px;
+    }
+
+    .thank-content h2 {
+        font-size: 40px;
+    }
+
     .footer-content h2 {
         font-size: 40px;
     }
-/* =========================================
-   แก้เฉพาะการ์ดผลงาน
-   หน้าแรก + SOP ไม่เปลี่ยน
-   ========================================= */
 
-.works-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+    .work-text h3,
+    .work-content h3 {
+        font-size: 20px;
 
-.work-card {
-    min-width: 0;
-    overflow: hidden;
-}
+        overflow-wrap: anywhere;
 
-.work-text {
-    min-width: 0;
-    overflow: hidden;
-}
+        word-break: normal;
+    }
 
-.work-text h3 {
-    overflow-wrap: anywhere;
-    word-break: normal;
-    line-height: 1.45;
-    max-width: 100%;
-}
-
-.work-text p {
-    overflow-wrap: anywhere;
-    word-break: normal;
-}
-
-/* จอเล็ก */
-@media (max-width: 1000px) {
-    .works-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .work-text p,
+    .work-content p {
+        overflow-wrap: anywhere;
     }
 }
 
-@media (max-width: 700px) {
-    .works-grid {
-        grid-template-columns: 1fr;
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .hero {
+        padding-left: 5%;
+
+        padding-right: 5%;
     }
-}
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-small-title,
+    .small-title {
+        font-size: 14px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .btn {
+        width: 210px;
+    }
+
+    .profile-text {
+        padding: 25px 20px;
+    }
+
+    .info-box > div {
+        padding: 14px 15px;
+    }
+
+    .certificate-text h3 {
+        font-size: 23px;
+    }
+
+    .thank-content h2 {
+        font-size: 34px;
+
+        letter-spacing: 3px;
+    }
 }

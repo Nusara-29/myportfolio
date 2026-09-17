@@ -1,589 +1,1005 @@
 /* =====================================================
-   PROFILE — รูปซ้าย / ประวัติขวา
+   RESET
 ===================================================== */
 
-.profile-card {
-    width: min(1100px, 92%);
-    margin: 50px auto 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    display: grid;
-    grid-template-columns: 42% 58%;
-    align-items: center;
+html {
+    scroll-behavior: smooth;
+}
 
-    background: #ffffff;
-    border-radius: 30px;
-    overflow: hidden;
+body {
+    font-family: "Kanit", sans-serif;
+    background: #fff8f8;
+    color: #3c1119;
+    overflow-x: hidden;
+}
 
-    box-shadow: 0 18px 50px rgba(120, 0, 0, 0.12);
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
 }
 
 
-/* รูปด้านซ้าย */
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-.profile-image {
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
     width: 100%;
-    height: 100%;
+    height: 76px;
+
+    padding: 0 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 1000;
+
+    transition: 0.3s;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 5px 25px rgba(90, 10, 20, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 25px;
-    background: linear-gradient(
-        145deg,
-        #fff4f4,
-        #ffe3e3
-    );
-}
+    border-radius: 50%;
 
-.profile-image img {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
+    background: #97182a;
+    color: white;
 
-    display: block;
-
-    border-radius: 22px;
-
-    object-fit: contain;
-
-    transition: 0.4s ease;
-}
-
-.profile-image img:hover {
-    transform: scale(1.025);
-}
-
-
-/* ข้อมูลด้านขวา */
-
-.profile-text {
-    padding: 45px 50px;
-
-    text-align: left;
-
-    min-width: 0;
-}
-
-.profile-text h3 {
-    margin: 0 0 20px;
-
-    font-size: 30px;
     font-weight: 700;
-
-    color: #9e1717;
 }
 
-.profile-text > p {
-    margin: 10px 0;
-
-    font-size: 17px;
-    line-height: 1.8;
-
-    color: #555;
-}
-
-
-/* กล่องข้อมูล */
-
-.info-box {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    gap: 14px;
-
-    margin-top: 25px;
-}
-
-.info-box > div {
-    padding: 17px 20px;
-
-    background: #fff6f6;
-
-    border-left: 5px solid #b51d1d;
-
-    border-radius: 14px;
-
-    min-width: 0;
-}
-
-.info-box strong {
+.logo-text strong {
     display: block;
-
-    color: #9e1717;
-
-    font-size: 17px;
-
-    margin-bottom: 4px;
+    letter-spacing: 2px;
+    font-size: 15px;
 }
 
-.info-box p {
-    margin: 0;
-
-    color: #555;
-
-    line-height: 1.6;
-
-    overflow-wrap: anywhere;
+.logo-text small {
+    display: block;
+    color: #97182a;
+    font-size: 9px;
+    letter-spacing: 1px;
 }
 
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #46151d;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #c39b00;
+}
 
 
 /* =====================================================
-   WORK CARDS — ป้องกันชื่อผลงานตกขอบ
+   HERO
 ===================================================== */
 
-.works-grid {
-    width: min(1150px, 92%);
+.hero {
+    min-height: 100vh;
 
-    margin: 50px auto 0;
+    padding: 120px 9% 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+
+    position: relative;
+    overflow: hidden;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #74101d 0%,
+            #9c1729 50%,
+            #c9364a 100%
+        );
+}
+
+.hero-content {
+    width: 55%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small-title {
+    color: #ffe15b;
+    letter-spacing: 7px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.05;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: #ffe15b;
+}
+
+.hero-school {
+    margin-top: 28px;
+    font-size: 22px;
+}
+
+.hero-class {
+    opacity: 0.85;
+    margin-top: 5px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 28px;
+
+    border-radius: 50px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.btn-yellow {
+    background: #ffe15b;
+    color: #65101b;
+}
+
+.btn-white {
+    background: white;
+    color: #8d1525;
+}
+
+.hero-photo {
+    width: 37%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-photo-frame {
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    transform: rotate(3deg);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.3);
+}
+
+.hero-photo-frame img {
+    display: block;
+    width: 100%;
+
+    border-radius: 20px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+}
+
+.circle-one {
+    width: 450px;
+    height: 450px;
+    right: -180px;
+    top: -130px;
+}
+
+.circle-two {
+    width: 300px;
+    height: 300px;
+    left: -150px;
+    bottom: -150px;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    padding: 100px 9%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading span {
+    color: #a21a2c;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-top: 5px;
+}
+
+.yellow-line {
+    width: 65px;
+    height: 5px;
+
+    margin: 15px auto;
+
+    border-radius: 50px;
+
+    background: #e6c532;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-section {
+    background: #fff8f8;
+}
+
+.about-container {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 20px 45px rgba(100,10,20,0.15);
+
+    transition: 0.4s;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+.about-info {
+    display: grid;
+    gap: 18px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(100,10,20,0.08);
+
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateX(8px);
+}
+
+.info-icon {
+    font-size: 30px;
+}
+
+.info-card h3 {
+    color: #981829;
+    font-size: 17px;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   SOP
+===================================================== */
+
+.sop-section {
+    background: #f7e7e9;
+}
+
+.sop-container {
+    max-width: 1200px;
+
+    margin: auto;
 
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 0.8fr 1.2fr;
 
-    gap: 28px;
+    gap: 35px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
 }
 
-
-.work-card {
-    min-width: 0;
-
-    background: #ffffff;
-
-    border-radius: 24px;
-
-    overflow: hidden;
-
-    box-shadow: 0 12px 35px rgba(100, 0, 0, 0.10);
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.work-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow: 0 20px 45px rgba(100, 0, 0, 0.16);
-}
-
-
-/* รูปผลงาน */
-
-.work-card > img {
+.sop-image img {
     width: 100%;
-    height: 260px;
 
     display: block;
 
-    object-fit: cover;
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.sop-image img:hover {
+    transform: scale(1.01);
+}
+
+.sop-content {
+    min-width: 0;
+}
+
+.sop-label {
+    color: #9b1829;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+.sop-text {
+    height: 610px;
+
+    overflow-y: auto;
+
+    padding-right: 18px;
+}
+
+.sop-text::-webkit-scrollbar {
+    width: 7px;
+}
+
+.sop-text::-webkit-scrollbar-track {
+    background: #f3e4e6;
+    border-radius: 20px;
+}
+
+.sop-text::-webkit-scrollbar-thumb {
+    background: #981829;
+    border-radius: 20px;
+}
+
+.sop-text p {
+    color: #555;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+    text-align: justify;
+
+    margin-bottom: 20px;
+}
+
+.sop-text .quote {
+    color: #941728;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    text-align: left;
+
+    padding: 18px;
+
+    background: #fff5b9;
+
+    border-radius: 15px;
+
+    border-left: 5px solid #e5c52e;
+}
+
+
+/* =====================================================
+   WORKS
+===================================================== */
+
+.works-section {
+    background: #fff;
+}
+
+.works-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.work-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(100,10,20,0.10);
+
+    transition: 0.4s;
+}
+
+.work-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(100,10,20,0.18);
+}
+
+.work-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.work-image img {
+    width: 100%;
+
+    display: block;
+
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.04);
+}
+
+.work-image span {
+    position: absolute;
+
+    right: 0;
+    top: 20px;
+
+    padding: 8px 12px;
+
+    background: #971829;
+    color: white;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    writing-mode: vertical-rl;
+}
+
+.work-text {
+    padding: 22px;
+}
+
+.work-text h3 {
+    color: #981829;
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+}
+
+.work-text p {
+    color: #777;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience-section {
+    background: #79101e;
+
+    color: white;
+}
+
+.experience-section .section-heading span {
+    color: #ffe15b;
+}
+
+.experience-section .section-heading h2 {
+    color: white;
+}
+
+.experience-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.experience-card {
+    padding: 30px 22px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    transition: 0.3s;
+}
+
+.experience-card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255,255,255,0.14);
+}
+
+.experience-icon {
+    font-size: 38px;
+
+    margin-bottom: 15px;
+}
+
+.experience-card h3 {
+    color: #ffe15b;
+
+    margin-bottom: 10px;
+}
+
+.experience-card p {
+    line-height: 1.8;
+
+    opacity: 0.85;
+}
+
+
+/* =====================================================
+   CERTIFICATE
+===================================================== */
+
+.certificate-section {
+    background: #fff8f8;
+}
+
+.certificate-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.12);
+}
+
+.certificate-image img {
+    width: 100%;
+
+    border-radius: 20px;
 
     cursor: pointer;
 }
 
+.certificate-text {
+    position: relative;
 
-/* เนื้อหาการ์ด */
-
-.work-content {
-    padding: 22px 24px 25px;
-
-    min-width: 0;
+    padding: 25px;
 }
 
-.work-number {
-    display: inline-block;
+.certificate-text h3 {
+    color: #981829;
 
-    margin-bottom: 8px;
+    font-size: 28px;
 
-    font-size: 13px;
-    font-weight: 700;
-
-    color: #b51d1d;
-
-    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
-
-/* ชื่อผลงาน */
-
-.work-content h3 {
-    margin: 0 0 10px;
-
-    color: #8f1515;
-
-    font-size: 21px;
-
-    line-height: 1.35;
-
-    /*
-       สำคัญ:
-       ป้องกันข้อความยาวทะลุการ์ด
-    */
-
-    overflow-wrap: anywhere;
-    word-break: normal;
-}
-
-
-/* รายละเอียด */
-
-.work-content p {
-    margin: 0;
-
+.certificate-text p {
     color: #666;
 
-    font-size: 15px;
+    line-height: 2;
 
-    line-height: 1.7;
-
-    overflow-wrap: anywhere;
+    margin-bottom: 15px;
 }
 
+.vertical-label {
+    position: absolute;
+
+    right: -5px;
+    top: 0;
+
+    padding: 10px 7px;
+
+    background: #981829;
+
+    color: white;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    writing-mode: vertical-rl;
+}
 
 
 /* =====================================================
-   SECTION TITLE
+   FUTURE
 ===================================================== */
 
-.section-title {
-    width: min(1100px, 92%);
+.future-section {
+    padding: 100px 9%;
 
-    margin: 0 auto;
+    background: #f2d8dd;
+}
+
+.future-card {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(100,10,20,0.1);
+}
+
+.future-label {
+    color: #981829;
+
+    letter-spacing: 5px;
+}
+
+.future-card h2 {
+    color: #891525;
+
+    font-size: 40px;
+
+    margin: 10px 0;
+}
+
+.future-line {
+    width: 70px;
+    height: 5px;
+
+    margin: 20px auto;
+
+    border-radius: 50px;
+
+    background: #e5c52e;
+}
+
+.future-school {
+    color: #555;
+
+    font-size: 21px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    background: #650d18;
+
+    color: white;
+}
+
+.footer-image img {
+    width: 100%;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+.footer-content {
+    padding: 50px;
 
     text-align: center;
 }
 
-.section-title span {
-    display: block;
+.footer-content h2 {
+    color: #ffe15b;
 
-    margin-bottom: 7px;
+    font-size: 55px;
 
-    color: #b51d1d;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+    letter-spacing: 5px;
 }
 
-.section-title h2 {
-    margin: 0;
+.footer-content p {
+    margin-top: 10px;
 
-    color: #8f1515;
-
-    font-size: clamp(30px, 4vw, 45px);
-
-    line-height: 1.25;
-
-    overflow-wrap: anywhere;
+    opacity: 0.9;
 }
 
-.section-title p {
-    margin-top: 12px;
+.footer-name {
+    font-size: 21px;
 
-    color: #777;
-
-    line-height: 1.7;
+    margin-top: 25px !important;
 }
 
+.footer-school {
+    color: #ffe15b;
+}
 
 
 /* =====================================================
-   MOBILE
+   LIGHTBOX
 ===================================================== */
 
-@media (max-width: 850px) {
+.lightbox {
+    position: fixed;
 
-    /* รูปบน / ข้อมูลล่างเมื่อจอมือถือ */
+    inset: 0;
 
-    .profile-card {
-        grid-template-columns: 1fr;
+    display: none;
 
-    }
-
-    .profile-image {
-        padding: 20px;
-    }
-
-    .profile-image img {
-        max-width: 500px;
-    }
-
-    .profile-text {
-        padding: 30px 25px;
-    }
-
-
-    /* ผลงาน 2 คอลัมน์ */
-
-    .works-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        gap: 20px;
-    }
-
-    .work-card > img {
-        height: 220px;
-    }
-
-    .work-content {
-        padding: 18px;
-    }
-
-    .work-content h3 {
-        font-size: 19px;
-    }
-
-}
-
-
-@media (max-width: 550px) {
-
-    /* มือถือ 1 คอลัมน์ */
-
-    .works-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .work-card > img {
-        height: auto;
-
-        max-height: 500px;
-
-        object-fit: contain;
-
-        background: #fff5f5;
-    }
-
-    .work-content h3 {
-        font-size: 20px;
-    }
-
-    .profile-text h3 {
-        font-size: 26px;
-    }
-/* =========================================
-   แก้เฉพาะหน้า PROFILE + WORKS
-   หน้าแรกและ SOP ไม่แตะ
-   ========================================= */
-
-/* ===== PROFILE ===== */
-
-.profile-card {
-    width: min(1100px, 92%);
-    margin: 50px auto 0;
-    display: grid;
-    grid-template-columns: 42% 58%;
-    align-items: center;
-    background: #fff;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 18px 50px rgba(120, 0, 0, 0.12);
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 25px;
-    background: linear-gradient(145deg, #fff4f4, #ffe3e3);
-    box-sizing: border-box;
+
+    padding: 30px;
+
+    background: rgba(0,0,0,0.88);
+
+    z-index: 3000;
 }
 
-.profile-image img {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    display: block;
-    border-radius: 22px;
-    object-fit: contain;
+.lightbox.active {
+    display: flex;
 }
 
-.profile-text {
-    padding: 45px 50px;
-    text-align: left;
-    min-width: 0;
-    box-sizing: border-box;
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4);
 }
 
-.profile-text h3 {
-    margin: 0 0 20px;
-    font-size: 30px;
-    font-weight: 700;
-    color: #9e1717;
-}
+.lightbox-close {
+    position: absolute;
 
-.profile-text > p {
-    margin: 10px 0;
-    font-size: 17px;
-    line-height: 1.8;
-    color: #555;
-}
+    right: 30px;
+    top: 15px;
 
-.info-box {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-top: 25px;
-}
+    border: none;
 
-.info-box > div {
-    padding: 17px 20px;
-    background: #fff6f6;
-    border-left: 5px solid #b51d1d;
-    border-radius: 14px;
-    min-width: 0;
-    box-sizing: border-box;
-}
+    background: none;
 
-.info-box strong {
-    display: block;
-    color: #9e1717;
-    font-size: 17px;
-    margin-bottom: 4px;
-}
+    color: white;
 
-.info-box p {
-    margin: 0;
-    color: #555;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-}
+    font-size: 55px;
 
-
-/* ===== WORKS ===== */
-
-.works-grid {
-    width: min(1150px, 92%);
-    margin: 50px auto 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-}
-
-.work-card {
-    min-width: 0;
-    width: 100%;
-    background: #fff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 12px 35px rgba(100, 0, 0, 0.10);
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
-    box-sizing: border-box;
-}
-
-.work-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(100, 0, 0, 0.16);
-}
-
-.work-card > img {
-    width: 100%;
-    height: 260px;
-    display: block;
-    object-fit: cover;
     cursor: pointer;
 }
 
-.work-content {
-    padding: 22px 24px 25px;
-    min-width: 0;
-    box-sizing: border-box;
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
-.work-number {
-    display: inline-block;
-    margin-bottom: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #b51d1d;
-    letter-spacing: 1px;
-}
+.reveal.show {
+    opacity: 1;
 
-.work-content h3 {
-    margin: 0 0 10px;
-    color: #8f1515;
-    font-size: 21px;
-    line-height: 1.4;
-
-    /* ป้องกันข้อความทะลุการ์ด */
-    overflow-wrap: anywhere;
-    word-break: normal;
-}
-
-.work-content p {
-    margin: 0;
-    color: #666;
-    font-size: 15px;
-    line-height: 1.7;
-
-    overflow-wrap: anywhere;
+    transform: translateY(0);
 }
 
 
-/* ===== MOBILE ===== */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
 
-    .profile-card {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .about-container,
+    .sop-container,
+    .certificate-container,
+    .footer {
         grid-template-columns: 1fr;
     }
 
-    .profile-image {
-        padding: 20px;
-    }
-
-    .profile-image img {
-        max-width: 500px;
-    }
-
-    .profile-text {
-        padding: 30px 25px;
-    }
-
     .works-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .work-card > img {
-        height: 220px;
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .work-content {
-        padding: 18px;
-    }
-
-    .work-content h3 {
-        font-size: 19px;
-    }
 }
 
 
-@media (max-width: 550px) {
+@media (max-width: 700px) {
 
-    .works-grid {
+    .navbar {
+        height: 65px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 120px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-content,
+    .hero-photo {
+        width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-school {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 70px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .works-grid,
+    .experience-grid {
         grid-template-columns: 1fr;
     }
 
-    .work-card > img {
-        height: auto;
-        max-height: 500px;
-        object-fit: contain;
-        background: #fff5f5;
+    .sop-text {
+        height: 500px;
     }
 
-    .work-content h3 {
-        font-size: 20px;
+    .footer-content h2 {
+        font-size: 40px;
     }
 
-    .profile-text h3 {
-        font-size: 26px;
-    }
-}
 }

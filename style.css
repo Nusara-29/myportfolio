@@ -1001,5 +1001,47 @@ a {
     .footer-content h2 {
         font-size: 40px;
     }
+/* =========================================
+   แก้เฉพาะการ์ดผลงาน
+   หน้าแรก + SOP ไม่เปลี่ยน
+   ========================================= */
 
+.works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.work-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.work-text {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.work-text h3 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.45;
+    max-width: 100%;
+}
+
+.work-text p {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+/* จอเล็ก */
+@media (max-width: 1000px) {
+    .works-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+}
 }

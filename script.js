@@ -1,138 +1,193 @@
-// ===============================
-// SCROLL REVEAL
-// ===============================
-
-const revealItems = document.querySelectorAll(
-    ".section-title, .profile-card, .sop-card, .work-card, .experience-box, .certificate-card, .future-content, .thank-content"
-);
-
-revealItems.forEach(item => {
-    item.classList.add("reveal");
-});
+document.addEventListener("DOMContentLoaded", function () {
 
 
-const observer = new IntersectionObserver(
-    (entries, observer) => {
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-        entries.forEach(entry => {
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("show");
+    const observer =
+        new IntersectionObserver(
 
-                observer.unobserve(entry.target);
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        observer.observe(element);
+
+    });
+
+
+
+    /* =====================================================
+       NAVBAR SHADOW
+    ===================================================== */
+
+    const navbar =
+        document.getElementById("navbar");
+
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 40) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+
+    /* =====================================================
+       LIGHTBOX
+    ===================================================== */
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+    const lightboxClose =
+        document.getElementById("lightboxClose");
+
+
+    const images =
+        document.querySelectorAll(".click-image");
+
+
+    images.forEach(function (image) {
+
+        image.addEventListener("click", function () {
+
+            lightboxImage.src = image.src;
+
+            lightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       CLOSE LIGHTBOX
+    ===================================================== */
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        lightboxImage.src = "";
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+    lightbox.addEventListener(
+        "click",
+        function (event) {
+
+            if (event.target === lightbox) {
+
+                closeLightbox();
 
             }
 
-        });
-
-    },
-    {
-        threshold: 0.15
-    }
-);
+        }
+    );
 
 
-revealItems.forEach(item => {
-    observer.observe(item);
-});
+
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
 
 
-// ===============================
-// NAVBAR SHADOW
-// ===============================
 
-const navbar = document.querySelector(".navbar");
+    /* =====================================================
+       BUTTON CLICK EFFECT
+    ===================================================== */
 
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 50) {
-
-        navbar.style.boxShadow =
-            "0 10px 30px rgba(0,0,0,.25)";
-
-    } else {
-
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
+    const buttons =
+        document.querySelectorAll(".btn");
 
 
-// ===============================
-// IMAGE LIGHTBOX
-// ===============================
+    buttons.forEach(function (button) {
 
-const workImages = document.querySelectorAll(
-    ".work-card img, .certificate-item img"
-);
+        button.addEventListener(
+            "click",
+            function () {
 
-workImages.forEach(image => {
+                button.style.transform =
+                    "scale(0.94)";
 
-    image.style.cursor = "zoom-in";
+                setTimeout(function () {
 
-    image.addEventListener("click", () => {
+                    button.style.transform = "";
 
-        const overlay = document.createElement("div");
+                }, 150);
 
-        overlay.style.position = "fixed";
-        overlay.style.inset = "0";
-        overlay.style.background = "rgba(0,0,0,.88)";
-        overlay.style.display = "flex";
-        overlay.style.alignItems = "center";
-        overlay.style.justifyContent = "center";
-        overlay.style.padding = "30px";
-        overlay.style.zIndex = "9999";
-        overlay.style.cursor = "zoom-out";
-
-        const bigImage = document.createElement("img");
-
-        bigImage.src = image.src;
-
-        bigImage.style.maxWidth = "95%";
-        bigImage.style.maxHeight = "90vh";
-        bigImage.style.objectFit = "contain";
-        bigImage.style.borderRadius = "15px";
-
-        overlay.appendChild(bigImage);
-
-        document.body.appendChild(overlay);
-
-        overlay.addEventListener("click", () => {
-            overlay.remove();
-        });
+            }
+        );
 
     });
 
-});
 
 
-// ===============================
-// BUTTON CLICK EFFECT
-// ===============================
-
-document.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", function () {
-
-        this.style.transform = "scale(.96)";
-
-        setTimeout(() => {
-
-            this.style.transform = "";
-
-        }, 150);
-
-    });
+    console.log(
+        "Portfolio ของ นางสาวนุสรา ทับทิมหิน พร้อมใช้งานแล้ว 💗"
+    );
 
 });
-
-
-// ===============================
-// CURRENT YEAR
-// ===============================
-
-console.log(
-    "Nusara Portfolio | 2026"
-);
